@@ -160,7 +160,7 @@ const keys = {
     classes: [classes.common.long],
     specName: 'Backspace',
     en: {
-      key: 'Backspace',
+      key: '',
     },
   },
 
@@ -351,7 +351,7 @@ const keys = {
     classes: [classes.special.delete],
     specName: 'DEL',
     en: {
-      key: 'Delete',
+      key: '',
     },
   },
   CapsLock: {
@@ -359,7 +359,7 @@ const keys = {
     classes: [classes.special.capsLock],
     specName: 'CapsLock',
     en: {
-      key: 'CapsLock',
+      key: '',
     },
   },
   KeyA: {
@@ -523,7 +523,7 @@ const keys = {
     classes: [classes.common.long, classes.special.leftShift],
     specName: 'Shift',
     en: {
-      key: 'Shift',
+      key: '',
     },
   },
   KeyZ: {
@@ -662,7 +662,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '↑', // \u2191
     en: {
-      key: 'ArrowUp',
+      key: '',
     },
   },
   ShiftRight: {
@@ -670,7 +670,7 @@ const keys = {
     classes: [classes.common.long, classes.special.rightShift],
     specName: 'Shift',
     en: {
-      key: 'Shift',
+      key: '',
     },
   },
 
@@ -679,7 +679,7 @@ const keys = {
     classes: [classes.common.medium, classes.special.ctrl],
     specName: 'Ctrl',
     en: {
-      key: 'Control',
+      key: '',
     },
   },
   MetaLeft: {
@@ -687,7 +687,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: 'Win',
     en: {
-      key: 'Meta',
+      key: '',
     },
   },
   AltLeft: {
@@ -695,7 +695,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: 'Alt',
     en: {
-      key: 'Alt',
+      key: '',
     },
   },
   Space: {
@@ -711,7 +711,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: 'Alt',
     en: {
-      key: 'Alt',
+      key: '',
     },
   },
   ControlRight: {
@@ -719,7 +719,7 @@ const keys = {
     classes: [classes.common.medium, classes.special.ctrl],
     specName: 'Ctrl',
     en: {
-      key: 'Control',
+      key: '',
     },
   },
 
@@ -728,7 +728,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '←', // \u2190
     en: {
-      key: 'ArrowLeft',
+      key: '',
     },
   },
   ArrowDown: {
@@ -736,7 +736,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '↓', // \u2193
     en: {
-      key: 'ArrowDown',
+      key: '',
     },
   },
 
@@ -745,7 +745,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '→', // \u2192
     en: {
-      key: 'ArrowRight',
+      key: '',
     },
   },
 

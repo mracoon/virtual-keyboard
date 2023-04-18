@@ -35,8 +35,10 @@ body.append(container);
 // -----------------------------------------------------
 function generateKeysBtns(keysData) {
   Object.keys(keysData).forEach((key) => {
-    const btn = document.createElement('button');
+    const btn = document.createElement('div');
+    // btn.addEventListener('focus', (e) => { e.target.blur(); });
     btn.id = `${key}`;
+    // btn.onselectstart = preventDefault()
     const btnClasses = ['button', ...keysData[key].classes];
     btn.classList.add(...btnClasses);
     btn.textContent = keysData[key].specName || keysData[key]?.[lang]?.key || keysData[key].en.key;
@@ -55,15 +57,35 @@ function generateKeysBtns(keysData) {
 
 generateKeysBtns(keys);
 
+function clickHandler(btnId) {
+  textField.focus();
+  // document.querySelector(`#${e.code}`).classList.add('pressed');
+  // e.preventDefault();
+  textField.value += keys[btnId]?.[lang]?.key || keys[btnId].en.key;
+}
+
 window.addEventListener(
   'keydown',
   (e) => {
+    //  textField.focus();
+    e.preventDefault();
     document.querySelector(`#${e.code}`).classList.add('pressed');
+    clickHandler(e.code);
+
+    // textField.value += keys[e.code]?.[lang]?.key || keys[e.code].en.key;
   },
 );
+
 window.addEventListener(
   'keyup',
   (e) => {
     document.querySelector(`#${e.code}`).classList.remove('pressed');
   },
 );
+
+keyboard.addEventListener('click', (e) => {
+  const pressedBtn = e.target;
+  if (pressedBtn.classList.contains('button')) {
+    clickHandler(pressedBtn.id)
+  }
+})
