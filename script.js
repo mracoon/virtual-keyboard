@@ -1,3 +1,5 @@
+import keysData from './scripts/keys.js';
+
 // -----------create base structure---------------
 
 const body = document.querySelector('body');
@@ -21,3 +23,5 @@ container.append(keyboard);
 body.append(container);
 
 // -----------------------------------------------------
+
+console.log(keysData.AltLeft);

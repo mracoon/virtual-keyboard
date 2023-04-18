@@ -1,4 +1,4 @@
-import classes from './css_classes';
+import classes from './css_classes.js';
 
 const keys = {
 
