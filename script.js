@@ -54,3 +54,16 @@ function generateKeysBtns(keysData) {
 }
 
 generateKeysBtns(keys);
+
+window.addEventListener(
+  'keydown',
+  (e) => {
+    document.querySelector(`#${e.code}`).classList.add('pressed');
+  },
+);
+window.addEventListener(
+  'keyup',
+  (e) => {
+    document.querySelector(`#${e.code}`).classList.remove('pressed');
+  },
+);
