@@ -3,6 +3,7 @@ import classes from './css_classes.js';
 const keys = {
 
   Backquote: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -15,6 +16,7 @@ const keys = {
   },
 
   Digit1: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -24,6 +26,7 @@ const keys = {
   },
 
   Digit2: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -37,6 +40,7 @@ const keys = {
   },
 
   Digit3: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -50,6 +54,7 @@ const keys = {
   },
 
   Digit4: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -63,6 +68,7 @@ const keys = {
   },
 
   Digit5: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -72,6 +78,7 @@ const keys = {
   },
 
   Digit6: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -85,6 +92,7 @@ const keys = {
   },
 
   Digit7: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -98,6 +106,7 @@ const keys = {
   },
 
   Digit8: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -107,6 +116,7 @@ const keys = {
   },
 
   Digit9: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -116,6 +126,7 @@ const keys = {
   },
 
   Digit0: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -125,6 +136,7 @@ const keys = {
   },
 
   Minus: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -134,6 +146,7 @@ const keys = {
   },
 
   Equal: {
+    row: 'row-1',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -143,6 +156,7 @@ const keys = {
   },
 
   Backspace: {
+    row: 'row-1',
     classes: [classes.common.long],
     specName: 'Backspace',
     en: {
@@ -151,6 +165,7 @@ const keys = {
   },
 
   Tab: {
+    row: 'row-2',
     classes: [classes.special.tab],
     specName: 'Tab',
     en: {
@@ -159,130 +174,141 @@ const keys = {
   },
 
   KeyQ: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'q',
-      shiftKey: 'Q',
+      //  shiftKey: 'Q',
     },
     ru: {
       key: 'й',
-      shiftKey: 'Й',
+      //  shiftKey: 'Й',
     },
   },
 
   KeyW: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'w',
-      shiftKey: 'W',
+      //  shiftKey: 'W',
     },
     ru: {
       key: 'ц',
-      shiftKey: 'Ц',
+      //  shiftKey: 'Ц',
     },
   },
 
   KeyE: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'e',
-      shiftKey: 'E',
+      // shiftKey: 'E',
     },
     ru: {
       key: 'у',
-      shiftKey: 'У',
+      // shiftKey: 'У',
     },
   },
 
   KeyR: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'r',
-      shiftKey: 'R',
+      //  shiftKey: 'R',
     },
     ru: {
       key: 'к',
-      shiftKey: 'К',
+      //  shiftKey: 'К',
     },
   },
 
   KeyT: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 't',
-      shiftKey: 'T',
+      // shiftKey: 'T',
     },
     ru: {
       key: 'е',
-      shiftKey: 'Е',
+      // shiftKey: 'Е',
     },
   },
   KeyY: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'y',
-      shiftKey: 'Y',
+      // shiftKey: 'Y',
     },
     ru: {
       key: 'н',
-      shiftKey: 'Н',
+      // shiftKey: 'Н',
     },
   },
   KeyU: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'u',
-      shiftKey: 'U',
+      //  shiftKey: 'U',
     },
     ru: {
       key: 'г',
-      shiftKey: 'Г',
+      //  shiftKey: 'Г',
     },
   },
   KeyI: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'i',
-      shiftKey: 'I',
+      // shiftKey: 'I',
     },
     ru: {
       key: 'ш',
-      shiftKey: 'Ш',
+      //  shiftKey: 'Ш',
     },
   },
   KeyO: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'o',
-      shiftKey: 'O',
+      //  shiftKey: 'O',
     },
     ru: {
       key: 'щ',
-      shiftKey: 'Щ',
+      // shiftKey: 'Щ',
     },
   },
   KeyP: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'p',
-      shiftKey: 'P',
+      //   shiftKey: 'P',
     },
     ru: {
       key: 'з',
-      shiftKey: 'З',
+      //   shiftKey: 'З',
     },
   },
   BracketLeft: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -291,10 +317,11 @@ const keys = {
     },
     ru: {
       key: 'х',
-      shiftKey: 'Х',
+      //   shiftKey: 'Х',
     },
   },
   BracketRight: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -303,10 +330,11 @@ const keys = {
     },
     ru: {
       key: 'ъ',
-      shiftKey: 'Ъ',
+      //   shiftKey: 'Ъ',
     },
   },
   Backslash: {
+    row: 'row-2',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -319,6 +347,7 @@ const keys = {
     },
   },
   Delete: {
+    row: 'row-2',
     classes: [classes.special.delete],
     specName: 'DEL',
     en: {
@@ -326,6 +355,7 @@ const keys = {
     },
   },
   CapsLock: {
+    row: 'row-3',
     classes: [classes.special.capsLock],
     specName: 'CapsLock',
     en: {
@@ -333,131 +363,142 @@ const keys = {
     },
   },
   KeyA: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'a',
-      shiftKey: 'A',
+      //  shiftKey: 'A',
     },
     ru: {
       key: 'ф',
-      shiftKey: 'Ф',
+      // shiftKey: 'Ф',
     },
   },
   KeyS: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 's',
-      shiftKey: 'S',
+      //   shiftKey: 'S',
     },
     ru: {
       key: 'ы',
-      shiftKey: 'Ы',
+      //   shiftKey: 'Ы',
     },
   },
 
   KeyD: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'd',
-      shiftKey: 'D',
+      //   shiftKey: 'D',
     },
     ru: {
       key: 'в',
-      shiftKey: 'В',
+      //  shiftKey: 'В',
     },
   },
   KeyF: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'f',
-      shiftKey: 'F',
+      //  shiftKey: 'F',
     },
     ru: {
       key: 'а',
-      shiftKey: 'А',
+      //  shiftKey: 'А',
     },
   },
 
   KeyG: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'g',
-      shiftKey: 'G',
+      //   shiftKey: 'G',
     },
     ru: {
       key: 'п',
-      shiftKey: 'П',
+      //  shiftKey: 'П',
     },
   },
   KeyH: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'h',
-      shiftKey: 'H',
+      //  shiftKey: 'H',
     },
     ru: {
       key: 'р',
-      shiftKey: 'Р',
+      //  shiftKey: 'Р',
     },
   },
   KeyJ: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'j',
-      shiftKey: 'J',
+      //  shiftKey: 'J',
     },
     ru: {
       key: 'о',
-      shiftKey: 'О',
+      // shiftKey: 'О',
     },
   },
   KeyK: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'k',
-      shiftKey: 'K',
+      //  shiftKey: 'K',
     },
     ru: {
       key: 'л',
-      shiftKey: 'Л',
+      //  shiftKey: 'Л',
     },
   },
 
   KeyL: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'l',
-      shiftKey: 'L',
+      //  shiftKey: 'L',
     },
     ru: {
       key: 'д',
-      shiftKey: 'Д',
+      //  shiftKey: 'Д',
     },
   },
 
   Semicolon: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: ';',
-      shiftKey: ':',
+      //  shiftKey: ':',
     },
     ru: {
       key: 'ж',
-      shiftKey: 'Ж',
+      //  shiftKey: 'Ж',
     },
   },
 
   Quote: {
+    row: 'row-3',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -466,10 +507,11 @@ const keys = {
     },
     ru: {
       key: 'э',
-      shiftKey: 'Э',
+      //  shiftKey: 'Э',
     },
   },
   Enter: {
+    row: 'row-3',
     classes: [classes.common.long, classes.special.enter],
     specName: 'ENTER',
     en: {
@@ -477,6 +519,7 @@ const keys = {
     },
   },
   ShiftLeft: {
+    row: 'row-4',
     classes: [classes.common.long, classes.special.leftShift],
     specName: 'Shift',
     en: {
@@ -484,91 +527,99 @@ const keys = {
     },
   },
   KeyZ: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'z',
-      shiftKey: 'Z',
+      //   shiftKey: 'Z',
     },
     ru: {
       key: 'я',
-      shiftKey: 'Я',
+      //  shiftKey: 'Я',
     },
   },
   KeyX: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'x',
-      shiftKey: 'X',
+      //   shiftKey: 'X',
     },
     ru: {
       key: 'ч',
-      shiftKey: 'Ч',
+      //  shiftKey: 'Ч',
     },
   },
   KeyC: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'c',
-      shiftKey: 'C',
+      //  shiftKey: 'C',
     },
     ru: {
       key: 'с',
-      shiftKey: 'С',
+      //  shiftKey: 'С',
     },
   },
   KeyV: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'v',
-      shiftKey: 'V',
+      //   shiftKey: 'V',
     },
     ru: {
       key: 'м',
-      shiftKey: 'М',
+      //   shiftKey: 'М',
     },
   },
   KeyB: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'b',
-      shiftKey: 'B',
+      //  shiftKey: 'B',
     },
     ru: {
       key: 'и',
-      shiftKey: 'И',
+      //  shiftKey: 'И',
     },
   },
 
   KeyN: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'n',
-      shiftKey: 'N',
+      //  shiftKey: 'N',
     },
     ru: {
       key: 'т',
-      shiftKey: 'Т',
+      //  shiftKey: 'Т',
     },
   },
   KeyM: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
       key: 'm',
-      shiftKey: 'M',
+      //  shiftKey: 'M',
     },
     ru: {
       key: 'ь',
-      shiftKey: 'Ь',
+      //  shiftKey: 'Ь',
     },
   },
   Comma: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -577,10 +628,11 @@ const keys = {
     },
     ru: {
       key: 'б',
-      shiftKey: 'Б',
+      //  shiftKey: 'Б',
     },
   },
   Period: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -589,10 +641,11 @@ const keys = {
     },
     ru: {
       key: 'ю',
-      shiftKey: 'Ю',
+      //  shiftKey: 'Ю',
     },
   },
   Slash: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '',
     en: {
@@ -605,6 +658,7 @@ const keys = {
     },
   },
   ArrowUp: {
+    row: 'row-4',
     classes: [classes.common.standart],
     specName: '↑', // \u2191
     en: {
@@ -612,6 +666,7 @@ const keys = {
     },
   },
   ShiftRight: {
+    row: 'row-4',
     classes: [classes.common.long, classes.special.rightShift],
     specName: 'Shift',
     en: {
@@ -620,6 +675,7 @@ const keys = {
   },
 
   ControlLeft: {
+    row: 'row-5',
     classes: [classes.common.medium, classes.special.ctrl],
     specName: 'Ctrl',
     en: {
@@ -627,6 +683,7 @@ const keys = {
     },
   },
   MetaLeft: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: 'Win',
     en: {
@@ -634,6 +691,7 @@ const keys = {
     },
   },
   AltLeft: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: 'Alt',
     en: {
@@ -641,6 +699,7 @@ const keys = {
     },
   },
   Space: {
+    row: 'row-5',
     classes: [classes.special.space],
     specName: '',
     en: {
@@ -648,6 +707,7 @@ const keys = {
     },
   },
   AltRight: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: 'Alt',
     en: {
@@ -655,6 +715,7 @@ const keys = {
     },
   },
   ControlRight: {
+    row: 'row-5',
     classes: [classes.common.medium, classes.special.ctrl],
     specName: 'Ctrl',
     en: {
@@ -663,6 +724,7 @@ const keys = {
   },
 
   ArrowLeft: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: '←', // \u2190
     en: {
@@ -670,6 +732,7 @@ const keys = {
     },
   },
   ArrowDown: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: '↓', // \u2193
     en: {
@@ -678,6 +741,7 @@ const keys = {
   },
 
   ArrowRight: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: '→', // \u2192
     en: {
@@ -686,6 +750,7 @@ const keys = {
   },
 
   NumpadMultiply: {
+    row: 'row-5',
     classes: [classes.common.standart],
     specName: '',
     en: {
