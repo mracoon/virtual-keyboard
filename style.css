@@ -2,6 +2,14 @@ body {
   background-color: bisque;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  background-color: burlywood;
+}
+
 .keyboard__container {
   background-color: rgb(168, 168, 19);
   width: 100%;
