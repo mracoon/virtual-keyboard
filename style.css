@@ -22,11 +22,15 @@ body {
 }
 
 .button {
+  box-sizing: border-box;
   background-color: black;
   color: aliceblue;
   height: 40px;
-  display: block;
-
+  /* display: block;*/
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
 }
 
 .standart-btn {
@@ -35,8 +39,15 @@ body {
   position: relative;
 }
 
+/* button:focus {
+  background-color: aqua;
+} */
+.button:hover {
+  background-color: rgb(86, 86, 86);
+}
+
 .pressed,
-button:active {
+.button:active {
   background-color: blueviolet;
   border-style: inset;
 }
@@ -50,6 +61,7 @@ button:active {
   left: 1px;
   color: aquamarine;
   font-size: 0.8em;
+  line-height: normal;
 
 }
 
