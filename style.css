@@ -1,0 +1,126 @@
+body {
+  background-color: bisque;
+}
+
+.keyboard__container {
+  background-color: rgb(168, 168, 19);
+  width: 100%;
+  max-width: 715px;
+  padding: 10px;
+  gap: 5px;
+  display: grid;
+  grid-template-rows: repeat(5, 40px);
+  gap: 5px;
+}
+
+.button {
+  background-color: black;
+  color: aliceblue;
+  height: 40px;
+  display: block;
+
+}
+
+.standart-btn {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.pressed,
+button:active {
+  background-color: blueviolet;
+  border-style: inset;
+}
+
+.addition-btn {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  color: aquamarine;
+  font-size: 0.8em;
+
+}
+
+.long-btn {
+  min-width: 90px;
+}
+
+.tab-btn {
+  min-width: 50px;
+}
+
+.del-btn {
+  min-width: 42px;
+}
+
+.ctrl-btn {
+  min-width: 60px;
+}
+
+.keyboard__row {
+  gap: 5px;
+  /* display: flex;*/
+  display: grid;
+}
+
+.space-btn {
+  min-width: 80px;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 18px;
+}
+
+.right-shift {
+  min-width: 85px;
+  width: 85px;
+}
+
+.row-1 {
+  grid-template-columns: repeat(13, 40px) 1fr;
+}
+
+.row-2 {
+  grid-template-columns: 1fr repeat(13, 40px) 1fr;
+}
+
+.row-3 {
+  grid-template-columns: 1fr repeat(11, 40px) 1fr;
+}
+
+.row-4 {
+  grid-template-columns: 1fr repeat(11, 40px) 85px;
+}
+
+.row-5 {
+  grid-template-columns: 60px repeat(2, 40px) 1fr 40px 60px repeat(4, 40px);
+}
+
+/* .nav-block {
+  display: grid;
+  row-gap: 2px;
+  grid-template-rows: repeat(2, 15px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: ". up ." "left down right";
+}
+
+.nav-block .up {
+  grid-area: up;
+}
+
+.nav-block .left {
+  grid-area: left;
+}
+
+.nav-block .down {
+  grid-area: down;
+}
+
+.nav-block .right {
+  grid-area: right;
+} */
