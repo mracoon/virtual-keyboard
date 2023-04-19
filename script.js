@@ -31,18 +31,29 @@ container.append(keyboard);
 
 // ---
 body.append(container);
+// console.log()
 
 // -----------------------------------------------------
 function generateKeysBtns(keysData) {
-  Object.keys(keysData).forEach((key) => {
+  // Object.keys(keysData).forEach((key) => {
+  Object.entries(keysData).forEach((el) => {
+    const [key, data] = el;
+    // console.log()
     const btn = document.createElement('div');
     // btn.addEventListener('focus', (e) => { e.target.blur(); });
     btn.id = `${key}`;
     // btn.onselectstart = preventDefault()
-    const btnClasses = ['button', ...keysData[key].classes];
+    // const btnClasses = ['button', ...keysData[key].classes];
+    const btnClasses = ['button', ...data.classes];
     btn.classList.add(...btnClasses);
-    btn.textContent = keysData[key].specName || keysData[key]?.[lang]?.key || keysData[key].en.key;
-    const additionalKeyText = keysData[key]?.[lang]?.shiftKey || keysData[key].en.shiftKey;
+    /*
+     btn.textContent = keysData[key].specName || keysData[key]?.[lang]?.key || keysData[key].en.key;
+     const additionalKeyText = keysData[key]?.[lang]?.shiftKey || keysData[key].en.shiftKey; */
+    btn.textContent = data.specName || data?.[lang]?.key || data.en.key;
+    // const additionalKeyText = data?.[lang]?.shiftKey // || data.en.shiftKey;
+    const additionalKeyText = (data?.[lang] === undefined
+      ? data.en.shiftKey : data?.[lang]?.shiftKey);
+    // console.log(key, additionalKeyText)
     if (additionalKeyText) {
       // (keysData[key]?.[lang]?.shiftKey) {
       const additionalKey = document.createElement('span');
@@ -51,7 +62,8 @@ function generateKeysBtns(keysData) {
       additionalKey.classList.add('addition-btn');
       btn.append(additionalKey);
     }
-    document.querySelector(`#${keysData[key].row}`).append(btn);
+    //  document.querySelector(`#${keysData[key].row}`).append(btn);
+    document.querySelector(`#${data.row}`).append(btn);
   });
 }
 
@@ -86,6 +98,6 @@ window.addEventListener(
 keyboard.addEventListener('click', (e) => {
   const pressedBtn = e.target;
   if (pressedBtn.classList.contains('button')) {
-    clickHandler(pressedBtn.id)
+    clickHandler(pressedBtn.id);
   }
-})
+});

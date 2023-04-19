@@ -489,7 +489,7 @@ const keys = {
     specName: '',
     en: {
       key: ';',
-      //  shiftKey: ':',
+      shiftKey: ':',
     },
     ru: {
       key: 'ж',
