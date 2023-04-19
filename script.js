@@ -73,7 +73,24 @@ function clickHandler(btnId) {
   textField.focus();
   // document.querySelector(`#${e.code}`).classList.add('pressed');
   // e.preventDefault();
-  textField.value += keys[btnId]?.[lang]?.key || keys[btnId].en.key;
+  let cursorPos = textField.selectionStart;
+
+  const text = textField.value;
+  // console.log(cursorPos, text.length)
+  const newChar = keys[btnId]?.[lang]?.key || keys[btnId].en.key;
+  if (cursorPos === text.length) {
+    textField.value += newChar;
+  } else {
+    const firstSubstr = text.slice(0, cursorPos);
+    const secondSubstr = text.slice(cursorPos);
+    //    console.log(firstSubstr, secondSubstr)
+    textField.value = firstSubstr + newChar + secondSubstr;
+    cursorPos += 1;
+    textField.selectionStart = cursorPos;
+    textField.selectionEnd = cursorPos;
+  }
+  // keys[btnId]?.[lang]?.key || keys[btnId].en.key;
+  // console.log(textField.selectionStart)
 }
 
 window.addEventListener(
@@ -101,3 +118,5 @@ keyboard.addEventListener('click', (e) => {
     clickHandler(pressedBtn.id);
   }
 });
+
+// console.log(textField.selectionStart)
