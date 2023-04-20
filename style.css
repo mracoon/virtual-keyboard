@@ -77,9 +77,9 @@ body {
   min-width: 42px;
 }
 
-.ctrl-btn {
+/* .ctrl-btn {
   min-width: 60px;
-}
+} */
 
 .keyboard__row {
   gap: 5px;
@@ -118,7 +118,8 @@ body {
 }
 
 .row-5 {
-  grid-template-columns: 60px repeat(2, 40px) 1fr 40px 60px repeat(4, 40px);
+  /*   grid-template-columns: 60px repeat(2, 40px) 1fr 40px 60px repeat(4, 40px); */
+  grid-template-columns: repeat(3, 40px) 1fr repeat(5, 40px);
 }
 
 /* .nav-block {

@@ -676,7 +676,7 @@ const keys = {
 
   ControlLeft: {
     row: 'row-5',
-    classes: [classes.common.medium, classes.special.ctrl],
+    classes: [classes.common.standart, classes.special.ctrl],
     specName: 'Ctrl',
     en: {
       key: '',
@@ -714,14 +714,14 @@ const keys = {
       key: '',
     },
   },
-  ControlRight: {
-    row: 'row-5',
-    classes: [classes.common.medium, classes.special.ctrl],
-    specName: 'Ctrl',
-    en: {
-      key: '',
-    },
-  },
+  /*  ControlRight: {
+     row: 'row-5',
+     classes: [classes.common.medium, classes.special.ctrl],
+     specName: 'Ctrl',
+     en: {
+       key: '',
+     },
+   }, */
 
   ArrowLeft: {
     row: 'row-5',
@@ -749,12 +749,20 @@ const keys = {
     },
   },
 
-  NumpadMultiply: {
+  /*  NumpadMultiply: {
+     row: 'row-5',
+     classes: [classes.common.standart],
+     specName: '',
+     en: {
+       key: '*',
+     },
+   }, */
+  ControlRight: {
     row: 'row-5',
-    classes: [classes.common.standart],
-    specName: '',
+    classes: [classes.common.standart, classes.special.ctrl],
+    specName: 'Ctrl',
     en: {
-      key: '*',
+      key: '',
     },
   },
 };
