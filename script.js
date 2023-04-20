@@ -11,7 +11,7 @@ container.classList.add('container');
 const textField = document.createElement('textarea');
 textField.autofocus = true;
 // textField.cols = 20;
-// textField.rows = 10;
+textField.rows = 10;
 textField.value = '';
 
 container.append(textField);
@@ -69,6 +69,21 @@ function generateKeysBtns(keysData) {
 
 generateKeysBtns(keys);
 
+/* function addNewChar(newChar, cursor, textarea, text) {
+  if (cursor === text.length) {
+    textarea.value += newChar;
+  } else {
+    const firstSubstr = text.slice(0, cursor);
+    const secondSubstr = text.slice(cursor);
+    //    console.log(firstSubstr, secondSubstr)
+    textarea.value = firstSubstr + newChar + secondSubstr;
+    cursor += 1;
+    textarea.selectionStart = cursor;
+    textarea.selectionEnd = cursor;
+  }
+  return cursor
+} */
+
 function clickHandler(btnId) {
   textField.focus();
   // document.querySelector(`#${e.code}`).classList.add('pressed');
@@ -78,17 +93,32 @@ function clickHandler(btnId) {
   const text = textField.value;
   // console.log(cursorPos, text.length)
   const newChar = keys[btnId]?.[lang]?.key || keys[btnId].en.key;
-  if (cursorPos === text.length) {
-    textField.value += newChar;
-  } else {
-    const firstSubstr = text.slice(0, cursorPos);
-    const secondSubstr = text.slice(cursorPos);
+  const firstSubstr = text.slice(0, cursorPos);
+  const secondSubstr = text.slice(cursorPos);
+  // console.log(newChar ? newChar : false)
+  if (newChar) { // add new char
+    /*  if (cursorPos === text.length) {
+       textField.value += newChar;
+     } else { */
+    /*  const firstSubstr = text.slice(0, cursorPos);
+     const secondSubstr = text.slice(cursorPos); */
     //    console.log(firstSubstr, secondSubstr)
     textField.value = firstSubstr + newChar + secondSubstr;
     cursorPos += 1;
-    textField.selectionStart = cursorPos;
-    textField.selectionEnd = cursorPos;
+    /*  textField.selectionStart = cursorPos;
+     textField.selectionEnd = cursorPos; */
+    // }
+  } else if (btnId === 'Backspace' && cursorPos > 0) {
+    const newfirstString = firstSubstr.slice(0, -1);
+    textField.value = newfirstString + newChar + secondSubstr;
+    // console.log(cursorPos);
+    cursorPos -= 1;
   }
+
+  textField.selectionStart = cursorPos;
+  textField.selectionEnd = cursorPos;
+
+  // addNewChar(newChar, cursorPos, textField, text)
   // keys[btnId]?.[lang]?.key || keys[btnId].en.key;
   // console.log(textField.selectionStart)
 }
@@ -98,8 +128,13 @@ window.addEventListener(
   (e) => {
     //  textField.focus();
     e.preventDefault();
-    document.querySelector(`#${e.code}`).classList.add('pressed');
-    clickHandler(e.code);
+    const elem = document.querySelector(`#${e.code}`);
+    if (elem) {
+      elem.classList.add('pressed');
+      clickHandler(e.code);
+    }
+    //  document.querySelector(`#${e.code}`).classList.add('pressed');
+    // clickHandler(e.code);
 
     // textField.value += keys[e.code]?.[lang]?.key || keys[e.code].en.key;
   },
@@ -108,7 +143,8 @@ window.addEventListener(
 window.addEventListener(
   'keyup',
   (e) => {
-    document.querySelector(`#${e.code}`).classList.remove('pressed');
+    const elem = document.querySelector(`#${e.code}`);
+    if (elem) { elem.classList.remove('pressed'); }
   },
 );
 
