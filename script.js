@@ -113,6 +113,9 @@ function clickHandler(btnId) {
     textField.value = newfirstString + newChar + secondSubstr;
     // console.log(cursorPos);
     cursorPos -= 1;
+  } else if (btnId === 'Delete') {
+    const newSecondString = secondSubstr.slice(1);
+    textField.value = firstSubstr + newChar + newSecondString;
   }
 
   textField.selectionStart = cursorPos;
