@@ -4,7 +4,7 @@ const keys = {
 
   Backquote: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '`',
@@ -17,7 +17,7 @@ const keys = {
 
   Digit1: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '1',
@@ -27,7 +27,7 @@ const keys = {
 
   Digit2: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '2',
@@ -41,7 +41,7 @@ const keys = {
 
   Digit3: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '3',
@@ -55,7 +55,7 @@ const keys = {
 
   Digit4: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '4',
@@ -69,7 +69,7 @@ const keys = {
 
   Digit5: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '5',
@@ -79,7 +79,7 @@ const keys = {
 
   Digit6: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '6',
@@ -93,7 +93,7 @@ const keys = {
 
   Digit7: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '7',
@@ -107,7 +107,7 @@ const keys = {
 
   Digit8: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '8',
@@ -117,7 +117,7 @@ const keys = {
 
   Digit9: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '9',
@@ -127,7 +127,7 @@ const keys = {
 
   Digit0: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '0',
@@ -137,7 +137,7 @@ const keys = {
 
   Minus: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '-',
@@ -147,7 +147,7 @@ const keys = {
 
   Equal: {
     row: 'row-1',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '=',
@@ -175,7 +175,7 @@ const keys = {
 
   KeyQ: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'q',
@@ -189,7 +189,7 @@ const keys = {
 
   KeyW: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'w',
@@ -203,7 +203,7 @@ const keys = {
 
   KeyE: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'e',
@@ -217,7 +217,7 @@ const keys = {
 
   KeyR: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'r',
@@ -231,7 +231,7 @@ const keys = {
 
   KeyT: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 't',
@@ -244,7 +244,7 @@ const keys = {
   },
   KeyY: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'y',
@@ -257,7 +257,7 @@ const keys = {
   },
   KeyU: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'u',
@@ -270,7 +270,7 @@ const keys = {
   },
   KeyI: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'i',
@@ -283,7 +283,7 @@ const keys = {
   },
   KeyO: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'o',
@@ -296,7 +296,7 @@ const keys = {
   },
   KeyP: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'p',
@@ -309,7 +309,7 @@ const keys = {
   },
   BracketLeft: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '[',
@@ -317,12 +317,12 @@ const keys = {
     },
     ru: {
       key: 'х',
-      //   shiftKey: 'Х',
+      shiftKey: 'Х',
     },
   },
   BracketRight: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: ']',
@@ -330,12 +330,12 @@ const keys = {
     },
     ru: {
       key: 'ъ',
-      //   shiftKey: 'Ъ',
+      shiftKey: 'Ъ',
     },
   },
   Backslash: {
     row: 'row-2',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '\\',
@@ -364,7 +364,7 @@ const keys = {
   },
   KeyA: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'a',
@@ -377,7 +377,7 @@ const keys = {
   },
   KeyS: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 's',
@@ -391,7 +391,7 @@ const keys = {
 
   KeyD: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'd',
@@ -404,7 +404,7 @@ const keys = {
   },
   KeyF: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'f',
@@ -418,7 +418,7 @@ const keys = {
 
   KeyG: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'g',
@@ -431,7 +431,7 @@ const keys = {
   },
   KeyH: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'h',
@@ -444,7 +444,7 @@ const keys = {
   },
   KeyJ: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'j',
@@ -457,7 +457,7 @@ const keys = {
   },
   KeyK: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'k',
@@ -471,7 +471,7 @@ const keys = {
 
   KeyL: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'l',
@@ -485,7 +485,7 @@ const keys = {
 
   Semicolon: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: ';',
@@ -493,13 +493,13 @@ const keys = {
     },
     ru: {
       key: 'ж',
-      //  shiftKey: 'Ж',
+      shiftKey: 'Ж',
     },
   },
 
   Quote: {
     row: 'row-3',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '\'',
@@ -507,7 +507,7 @@ const keys = {
     },
     ru: {
       key: 'э',
-      //  shiftKey: 'Э',
+      shiftKey: 'Э',
     },
   },
   Enter: {
@@ -528,7 +528,7 @@ const keys = {
   },
   KeyZ: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'z',
@@ -541,7 +541,7 @@ const keys = {
   },
   KeyX: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'x',
@@ -554,7 +554,7 @@ const keys = {
   },
   KeyC: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'c',
@@ -567,7 +567,7 @@ const keys = {
   },
   KeyV: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'v',
@@ -580,7 +580,7 @@ const keys = {
   },
   KeyB: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'b',
@@ -594,7 +594,7 @@ const keys = {
 
   KeyN: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'n',
@@ -607,7 +607,7 @@ const keys = {
   },
   KeyM: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: 'm',
@@ -620,7 +620,7 @@ const keys = {
   },
   Comma: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: ',',
@@ -628,12 +628,12 @@ const keys = {
     },
     ru: {
       key: 'б',
-      //  shiftKey: 'Б',
+      shiftKey: 'Б',
     },
   },
   Period: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '.',
@@ -641,12 +641,12 @@ const keys = {
     },
     ru: {
       key: 'ю',
-      //  shiftKey: 'Ю',
+      shiftKey: 'Ю',
     },
   },
   Slash: {
     row: 'row-4',
-    classes: [classes.common.standart],
+    classes: [classes.common.standart, classes.common.updated],
     specName: '',
     en: {
       key: '/',

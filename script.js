@@ -1,6 +1,16 @@
 import keys from './scripts/keys.js';
 
-const lang = 'ru';
+const specBtns = {
+  CapsLock: false,
+  ShiftLeft: false,
+  ShiftRight: false,
+  ControlLeft: false,
+  ControlRight: false,
+  MetaLeft: false,
+  AltLeft: false,
+  AltRight: false,
+};
+const lang = 'en';
 // -----------create base structure---------------
 
 const body = document.querySelector('body');
@@ -12,7 +22,7 @@ const textField = document.createElement('textarea');
 textField.autofocus = true;
 // textField.cols = 20;
 textField.rows = 10;
-textField.value = 'ddd\ndddddd\nddddddddd\nd\n\n\ndddddd\ndd\ndddddddd';// '';
+textField.value = '';
 
 container.append(textField);
 
@@ -31,43 +41,72 @@ container.append(keyboard);
 
 // ---
 body.append(container);
-// console.log()
 
 // -----------------------------------------------------
-function generateKeysBtns(keysData) {
-  // Object.keys(keysData).forEach((key) => {
+
+function clearKeyboard() {
+  const kbRows = document.querySelectorAll('.keyboard__row');
+  kbRows.forEach((el) => { const row = el; row.innerHTML = ''; });
+}
+
+function addAdditionalKey(keysData, btnId, language, btn, ShiftLeft = false, ShiftRight = false) {
+  const additionalKeyText = (keysData[btnId]?.[language] === undefined
+    ? keysData[btnId].en.shiftKey : keysData[btnId]?.[language]?.shiftKey);
+
+  if (additionalKeyText
+    && (btn.textContent.toLocaleLowerCase() !== additionalKeyText.toLowerCase())) {
+    const additionalKey = document.createElement('span');
+    additionalKey.textContent = additionalKeyText;
+    additionalKey.classList.add('addition-btn');
+    if (ShiftLeft || ShiftRight) {
+      btn.classList.add('non-act');
+      additionalKey.classList.add('act');
+    } else {
+      btn.classList.remove('non-act');
+      additionalKey.classList.remove('act');
+    }
+
+    btn.append(additionalKey);
+  }
+}
+
+function generateKeysBtns(keysData, language) {
+  clearKeyboard();
+
   Object.entries(keysData).forEach((el) => {
     const [key, data] = el;
-    // console.log()
+
     const btn = document.createElement('div');
-    // btn.addEventListener('focus', (e) => { e.target.blur(); });
+
     btn.id = `${key}`;
-    // btn.onselectstart = preventDefault()
-    // const btnClasses = ['button', ...keysData[key].classes];
+
     const btnClasses = ['button', ...data.classes];
     btn.classList.add(...btnClasses);
-    /*
-     btn.textContent = keysData[key].specName || keysData[key]?.[lang]?.key || keysData[key].en.key;
-     const additionalKeyText = keysData[key]?.[lang]?.shiftKey || keysData[key].en.shiftKey; */
+
     btn.textContent = data.specName || data?.[lang]?.key || data.en.key;
-    // const additionalKeyText = data?.[lang]?.shiftKey // || data.en.shiftKey;
-    const additionalKeyText = (data?.[lang] === undefined
-      ? data.en.shiftKey : data?.[lang]?.shiftKey);
-    // console.log(key, additionalKeyText)
-    if (additionalKeyText) {
-      // (keysData[key]?.[lang]?.shiftKey) {
-      const additionalKey = document.createElement('span');
-      additionalKey.textContent = additionalKeyText;
-      // keysData[key]?.[lang]?.shiftKey
-      additionalKey.classList.add('addition-btn');
-      btn.append(additionalKey);
-    }
-    //  document.querySelector(`#${keysData[key].row}`).append(btn);
+
+    addAdditionalKey(keysData, key, language, btn);
     document.querySelector(`#${data.row}`).append(btn);
   });
 }
 
-generateKeysBtns(keys);
+generateKeysBtns(keys, lang);
+
+function buildSpecialBtnsObj() {
+  const CapsLock = document.querySelector('#CapsLock').classList.contains('pressed');
+
+  const ShiftLeft = document.querySelector('#ShiftLeft').classList.contains('pressed');
+  const ShiftRight = document.querySelector('#ShiftRight').classList.contains('pressed');
+  const ControlLeft = document.querySelector('#ControlLeft').classList.contains('pressed');
+  const ControlRight = document.querySelector('#ControlRight').classList.contains('pressed');
+  const AltLeft = document.querySelector('#AltLeft').classList.contains('pressed');
+  const AltRight = document.querySelector('#AltRight').classList.contains('pressed');
+  const MetaLeft = document.querySelector('#MetaLeft').classList.contains('pressed');
+
+  return {
+    CapsLock, ShiftLeft, ShiftRight, ControlLeft, ControlRight, AltLeft, AltRight, MetaLeft,
+  };
+}
 
 function createRowLengthArray(text) {
   let sum = 0;
@@ -76,8 +115,7 @@ function createRowLengthArray(text) {
     // let addNL = 1;
     let addNL = 1;
     if (i === 0) { addNL = 0; }
-    sum += el.length + addNL; // + i;
-    //  return [el.length + addNL, sum];
+    sum += el.length + addNL;
     return [el.length, sum];
   }); // rowLengths: [row length, sum]
 }
@@ -123,12 +161,22 @@ function upDownNavHandler(startCursorPos, text, dir = 'down') {
 
 function clickHandler(btnId) {
   textField.focus();
-
   let cursorPos = textField.selectionStart;
-
+  const specialBtns = buildSpecialBtnsObj();
   const text = textField.value;
+  const { CapsLock, ShiftLeft, ShiftRight } = specialBtns;
+  let newChar = keys[btnId]?.[lang]?.key || keys[btnId].en.key;
+  if ((ShiftLeft || ShiftRight) && !CapsLock) {
+    // only shifts (one or both) (caps not pressed)
+    newChar = keys[btnId]?.[lang]?.shiftKey || keys[btnId].en.shiftKey || newChar.toUpperCase();
+  } else if (!ShiftRight && !ShiftLeft && CapsLock) {
+    // only caps (no one of shifts pressed)
+    newChar = newChar.toUpperCase();
+  } else if ((ShiftLeft || ShiftRight) && CapsLock) {
+    // one (or both) shifts and caps(doesn't matter)
+    newChar = keys[btnId]?.[lang]?.shiftKey || keys[btnId].en.shiftKey || newChar;
+  }
 
-  const newChar = keys[btnId]?.[lang]?.key || keys[btnId].en.key;
   const firstSubstr = text.slice(0, cursorPos);
   const secondSubstr = text.slice(cursorPos);
   if (newChar) { // add new char
@@ -153,36 +201,94 @@ function clickHandler(btnId) {
   textField.selectionStart = cursorPos;
   textField.selectionEnd = cursorPos;
 }
+
+function updKeyBtns(keysData, language) {
+  const specialBtns = buildSpecialBtnsObj();
+  const btns = document.querySelectorAll('.updated');
+  // console.log(btns)
+  const { CapsLock, ShiftLeft, ShiftRight } = specialBtns;
+  const isUpper = ((!ShiftRight && !ShiftLeft) && CapsLock)
+    || (!CapsLock && (ShiftRight || ShiftLeft));
+  // true if caps or one of the Shifts pressed
+  // false if caps and both shifts pressed or nothing
+
+  btns.forEach((el) => {
+    const btn = el;
+    const btnId = btn.id;
+    let newChar = keysData[btnId]?.[language]?.key || keysData[btnId].en.key;
+
+    if (isUpper) {
+      newChar = newChar.toUpperCase();
+    }
+    btn.textContent = newChar;
+
+    addAdditionalKey(keysData, btnId, language, btn, ShiftLeft, ShiftRight);
+  });
+}
+
 window.addEventListener(
   'keydown',
   (e) => {
-    //  textField.focus();
     e.preventDefault();
-    const elem = document.querySelector(`#${e.code}`);
+    const elID = e.code;
+    const elem = document.querySelector(`#${elID}`);
     if (elem) {
-      elem.classList.add('pressed');
-      clickHandler(e.code);
-    }
-    //  document.querySelector(`#${e.code}`).classList.add('pressed');
-    // clickHandler(e.code);
+      const spBtns = {
+        CapsLock: false,
+        ShiftLeft: false,
+        ShiftRight: false,
+        ControlLeft: false,
+        ControlRight: false,
+        MetaLeft: false,
+        AltLeft: false,
+        AltRight: false,
+      };
+      if (elID in specBtns) {
+        if (elID === 'CapsLock') {
+          if (!buildSpecialBtnsObj().CapsLock) {
+            elem.classList.add('pressed');
+          } else {
+            elem.classList.remove('pressed');
+          }
+        } else {
+          elem.classList.add('pressed');
+        }
 
-    // textField.value += keys[e.code]?.[lang]?.key || keys[e.code].en.key;
+        spBtns[elID] = !specBtns[elID];
+        updKeyBtns(keys, lang);
+      } else { elem.classList.add('pressed'); }
+
+      clickHandler(elID);
+    }
   },
 );
 
 window.addEventListener(
   'keyup',
   (e) => {
+    const elID = e.code;
     const elem = document.querySelector(`#${e.code}`);
-    if (elem) { elem.classList.remove('pressed'); }
+    if (elem) {
+      if ((elID !== 'CapsLock')) {
+        elem.classList.remove('pressed');
+      }
+    }
+    if (elID in specBtns) {
+      specBtns[elID] = !specBtns[elID];
+    }
+    updKeyBtns(keys, lang);
   },
 );
 
 keyboard.addEventListener('click', (e) => {
   const pressedBtn = e.target;
   if (pressedBtn.classList.contains('button')) {
-    clickHandler(pressedBtn.id);
+    const elID = pressedBtn.id;
+    if (elID in specBtns) {
+      pressedBtn.classList.toggle('pressed');
+      specBtns[elID] = !specBtns[elID];
+      updKeyBtns(keys, lang);
+    }
+    clickHandler(elID);
   }
 });
-
-// console.log(textField.selectionStart)

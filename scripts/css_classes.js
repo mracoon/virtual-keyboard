@@ -3,6 +3,7 @@ const classes = {
     standart: 'standart-btn',
     medium: 'medium-btn',
     long: 'long-btn',
+    updated: 'updated',
   },
   special: {
     tab: 'tab-btn',
