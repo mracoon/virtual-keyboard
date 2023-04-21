@@ -12,7 +12,7 @@ const textField = document.createElement('textarea');
 textField.autofocus = true;
 // textField.cols = 20;
 textField.rows = 10;
-textField.value = '';
+textField.value = 'ddd\ndddddd\nddddddddd\nd\n\n\ndddddd\ndd\ndddddddd';// '';
 
 container.append(textField);
 
@@ -69,63 +69,90 @@ function generateKeysBtns(keysData) {
 
 generateKeysBtns(keys);
 
-/* function addNewChar(newChar, cursor, textarea, text) {
-  if (cursor === text.length) {
-    textarea.value += newChar;
-  } else {
-    const firstSubstr = text.slice(0, cursor);
-    const secondSubstr = text.slice(cursor);
-    //    console.log(firstSubstr, secondSubstr)
-    textarea.value = firstSubstr + newChar + secondSubstr;
-    cursor += 1;
-    textarea.selectionStart = cursor;
-    textarea.selectionEnd = cursor;
+function createRowLengthArray(text) {
+  let sum = 0;
+  // const rowLengths =
+  return text.split('\n').map((el, i) => {
+    // let addNL = 1;
+    let addNL = 1;
+    if (i === 0) { addNL = 0; }
+    sum += el.length + addNL; // + i;
+    //  return [el.length + addNL, sum];
+    return [el.length, sum];
+  }); // rowLengths: [row length, sum]
+}
+function findCursorPos(rowLengths, cursorPos) {
+  return rowLengths.findIndex((el) => el[1] >= cursorPos);
+}
+
+function upDownNavHandler(startCursorPos, text, dir = 'down') {
+  const rowLengths = createRowLengthArray(text, true);
+  const curCursorRow = findCursorPos(rowLengths, startCursorPos);
+
+  let newCursorPos = startCursorPos;
+  const totalRows = rowLengths.length;
+
+  const prevRow = curCursorRow > 0 ? rowLengths[curCursorRow - 1] : [-1, -1];
+  const [prevRowLength, prevSum] = prevRow;
+
+  const nextRow = curCursorRow < totalRows - 1 ? rowLengths[curCursorRow + 1] : [0, startCursorPos];
+  const [nextRowLength, nextSum] = nextRow;
+
+  const charFromBeginingRow = (startCursorPos - prevSum) - 1;
+
+  switch (dir) {
+    case 'up':
+      if (prevRowLength <= charFromBeginingRow) {
+        newCursorPos = curCursorRow > 0 ? prevSum : startCursorPos;
+        // запрещает переход с верхней строки
+      } else {
+        newCursorPos -= (prevRowLength + 1);
+      }
+      break;
+    default: // down
+      if (nextRowLength <= charFromBeginingRow) {
+        newCursorPos = nextSum;// nextRow[1]
+      } else {
+        newCursorPos = charFromBeginingRow + rowLengths[curCursorRow][1] + 1; // standart
+      }
+      break;
   }
-  return cursor
-} */
+
+  return newCursorPos;
+}
 
 function clickHandler(btnId) {
   textField.focus();
-  // document.querySelector(`#${e.code}`).classList.add('pressed');
-  // e.preventDefault();
+
   let cursorPos = textField.selectionStart;
 
   const text = textField.value;
-  // console.log(cursorPos, text.length)
+
   const newChar = keys[btnId]?.[lang]?.key || keys[btnId].en.key;
   const firstSubstr = text.slice(0, cursorPos);
   const secondSubstr = text.slice(cursorPos);
-  // console.log(newChar ? newChar : false)
   if (newChar) { // add new char
-    /*  if (cursorPos === text.length) {
-       textField.value += newChar;
-     } else { */
-    /*  const firstSubstr = text.slice(0, cursorPos);
-     const secondSubstr = text.slice(cursorPos); */
-    //    console.log(firstSubstr, secondSubstr)
     textField.value = firstSubstr + newChar + secondSubstr;
     cursorPos += 1;
-    /*  textField.selectionStart = cursorPos;
-     textField.selectionEnd = cursorPos; */
-    // }
   } else if (btnId === 'Backspace' && cursorPos > 0) {
     const newfirstString = firstSubstr.slice(0, -1);
     textField.value = newfirstString + newChar + secondSubstr;
-    // console.log(cursorPos);
     cursorPos -= 1;
-  } else if (btnId === 'Delete') {
+  } else if (btnId === 'Delete') { // TODO: удаление выделенного текста
     const newSecondString = secondSubstr.slice(1);
     textField.value = firstSubstr + newChar + newSecondString;
+  } else if (btnId === 'ArrowLeft' && cursorPos > 0) {
+    cursorPos -= 1;
+  } else if (btnId === 'ArrowRight') {
+    cursorPos += 1;
+  } else if (btnId === 'ArrowDown') {
+    cursorPos = upDownNavHandler(cursorPos, text);
+  } else if (btnId === 'ArrowUp') {
+    cursorPos = upDownNavHandler(cursorPos, text, 'up');
   }
-
   textField.selectionStart = cursorPos;
   textField.selectionEnd = cursorPos;
-
-  // addNewChar(newChar, cursorPos, textField, text)
-  // keys[btnId]?.[lang]?.key || keys[btnId].en.key;
-  // console.log(textField.selectionStart)
 }
-
 window.addEventListener(
   'keydown',
   (e) => {
