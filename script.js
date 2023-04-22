@@ -225,7 +225,7 @@ function updKeyBtns(keysData, language) {
     addAdditionalKey(keysData, btnId, language, btn, ShiftLeft, ShiftRight);
   });
 }
-
+let capsPressed = false;
 window.addEventListener(
   'keydown',
   (e) => {
@@ -245,7 +245,12 @@ window.addEventListener(
       };
       if (elID in specBtns) {
         if (elID === 'CapsLock') {
-          if (!buildSpecialBtnsObj().CapsLock) {
+          /*  if (!buildSpecialBtnsObj().CapsLock) {
+             elem.classList.add('pressed');
+           } else {
+             elem.classList.remove('pressed');
+           } */
+          if (capsPressed) {
             elem.classList.add('pressed');
           } else {
             elem.classList.remove('pressed');
@@ -271,6 +276,8 @@ window.addEventListener(
     if (elem) {
       if ((elID !== 'CapsLock')) {
         elem.classList.remove('pressed');
+      } else {
+        capsPressed = !capsPressed;
       }
     }
     if (elID in specBtns) {
