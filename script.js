@@ -10,7 +10,11 @@ const specBtns = {
   AltLeft: false,
   AltRight: false,
 };
-const lang = 'en';
+let lang = 'en';
+
+if (localStorage.getItem('mracoonLang')) {
+  lang = localStorage.getItem('mracoonLang');
+} else { localStorage.setItem('mracoonLang', lang); }
 // -----------create base structure---------------
 
 const body = document.querySelector('body');
@@ -244,13 +248,26 @@ window.addEventListener(
         AltRight: false,
       };
       if (elID in specBtns) {
+        /*       const specialBtns = buildSpecialBtnsObj();
+              //  console.log(elID, specialBtns);
+              const {
+                AltLeft,
+                  AltRight,
+                 CapsLock,
+                ControlLeft,
+                ControlRight,
+                MetaLeft,
+                ShiftLeft,
+                ShiftRight,
+              } = specialBtns; */
+        //  console.log(capsPressed);
         if (elID === 'CapsLock') {
           /*  if (!buildSpecialBtnsObj().CapsLock) {
              elem.classList.add('pressed');
            } else {
              elem.classList.remove('pressed');
            } */
-          if (capsPressed) {
+          if (!capsPressed) {
             elem.classList.add('pressed');
           } else {
             elem.classList.remove('pressed');
@@ -258,7 +275,12 @@ window.addEventListener(
         } else {
           elem.classList.add('pressed');
         }
-
+        /*  if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
+           //   lang = lang === 'en' ? 'ru' : 'en'
+           //    document.querySelector('#AltLeft').classList.remove('pressed')
+           //    document.querySelector('#ControlLeft').classList.remove('pressed')
+           //   localStorage.setItem('mracoonLang', lang);
+         } */
         spBtns[elID] = !specBtns[elID];
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
@@ -281,6 +303,23 @@ window.addEventListener(
       }
     }
     if (elID in specBtns) {
+      const specialBtns = buildSpecialBtnsObj();
+      const {
+        AltLeft,
+        /*  AltRight,
+         CapsLock, */
+        ControlLeft,
+        /*  ControlRight,
+         MetaLeft,
+         ShiftLeft,
+         ShiftRight, */
+      } = specialBtns;
+      if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
+        lang = lang === 'en' ? 'ru' : 'en';
+        document.querySelector('#AltLeft').classList.remove('pressed');
+        document.querySelector('#ControlLeft').classList.remove('pressed');
+        localStorage.setItem('mracoonLang', lang);
+      }
       specBtns[elID] = !specBtns[elID];
     }
     updKeyBtns(keys, lang);
@@ -291,9 +330,26 @@ keyboard.addEventListener('click', (e) => {
   const pressedBtn = e.target;
   if (pressedBtn.classList.contains('button')) {
     const elID = pressedBtn.id;
+    const specialBtns = buildSpecialBtnsObj();
+    const {
+      AltLeft,
+      /*  AltRight,
+       CapsLock, */
+      ControlLeft,
+      /*  ControlRight,
+       MetaLeft,
+       ShiftLeft,
+       ShiftRight, */
+    } = specialBtns;
     if (elID in specBtns) {
       pressedBtn.classList.toggle('pressed');
       specBtns[elID] = !specBtns[elID];
+      if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
+        lang = lang === 'en' ? 'ru' : 'en';
+        document.querySelector('#AltLeft').classList.remove('pressed');
+        document.querySelector('#ControlLeft').classList.remove('pressed');
+        localStorage.setItem('mracoonLang', lang);
+      }
       updKeyBtns(keys, lang);
     }
     clickHandler(elID);
