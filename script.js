@@ -48,12 +48,23 @@ body.append(container);
 
 // -----------------------------------------------------
 
-function clearKeyboard() {
+const clearKeyboard = () => {
+  // function clearKeyboard()
   const kbRows = document.querySelectorAll('.keyboard__row');
   kbRows.forEach((el) => { const row = el; row.innerHTML = ''; });
-}
+};
 
-function addAdditionalKey(keysData, btnId, language, btn, ShiftLeft = false, ShiftRight = false) {
+const addAdditionalKey = (
+  keysData,
+  btnId,
+  language,
+  btn,
+  ShiftLeft = false,
+  ShiftRight = false,
+) => {
+  //  function addAdditionalKey(keysData, btnId, language, btn,
+  // ShiftLeft = false, ShiftRight = false) {
+
   const additionalKeyText = (keysData[btnId]?.[language] === undefined
     ? keysData[btnId].en.shiftKey : keysData[btnId]?.[language]?.shiftKey);
 
@@ -72,7 +83,7 @@ function addAdditionalKey(keysData, btnId, language, btn, ShiftLeft = false, Shi
 
     btn.append(additionalKey);
   }
-}
+};
 
 function generateKeysBtns(keysData, language) {
   clearKeyboard();
@@ -96,9 +107,9 @@ function generateKeysBtns(keysData, language) {
 
 generateKeysBtns(keys, lang);
 
-function buildSpecialBtnsObj() {
+/* function buildSpecialBtnsObj() */
+const buildSpecialBtnsObj = () => {
   const CapsLock = document.querySelector('#CapsLock').classList.contains('pressed');
-
   const ShiftLeft = document.querySelector('#ShiftLeft').classList.contains('pressed');
   const ShiftRight = document.querySelector('#ShiftRight').classList.contains('pressed');
   const ControlLeft = document.querySelector('#ControlLeft').classList.contains('pressed');
@@ -110,9 +121,10 @@ function buildSpecialBtnsObj() {
   return {
     CapsLock, ShiftLeft, ShiftRight, ControlLeft, ControlRight, AltLeft, AltRight, MetaLeft,
   };
-}
+};
 
-function createRowLengthArray(text) {
+// function createRowLengthArray(text) {
+const createRowLengthArray = (text) => {
   let sum = 0;
   // const rowLengths =
   return text.split('\n').map((el, i) => {
@@ -122,15 +134,16 @@ function createRowLengthArray(text) {
     sum += el.length + addNL;
     return [el.length, sum];
   }); // rowLengths: [row length, sum]
-}
-function findCursorPos(rowLengths, cursorPos) {
-  return rowLengths.findIndex((el) => el[1] >= cursorPos);
-}
+};
 
-function upDownNavHandler(startCursorPos, text, dir = 'down') {
+// function findCursorPos(rowLengths, cursorPos) {
+const findCursorPos = (rowLengths, cursorPos) => rowLengths.findIndex((el) => el[1] >= cursorPos);
+
+const upDownNavHandler = (startCursorPos, text, dir = 'down') => {
+  //  function upDownNavHandler(startCursorPos, text, dir = 'down') {
+  // console.log(text)
   const rowLengths = createRowLengthArray(text, true);
   const curCursorRow = findCursorPos(rowLengths, startCursorPos);
-
   let newCursorPos = startCursorPos;
   const totalRows = rowLengths.length;
 
@@ -159,11 +172,11 @@ function upDownNavHandler(startCursorPos, text, dir = 'down') {
       }
       break;
   }
-
   return newCursorPos;
-}
+};
 
-function clickHandler(btnId) {
+const clickHandler = (btnId) => {
+  //  function clickHandler(btnId) {
   textField.focus();
   let cursorPos = textField.selectionStart;
   let cursorPosEnd = textField.selectionEnd;
@@ -214,9 +227,10 @@ function clickHandler(btnId) {
   }
   textField.selectionStart = cursorPos;
   textField.selectionEnd = cursorPosEnd;
-}
+};
 
-function updKeyBtns(keysData, language) {
+const updKeyBtns = (keysData, language) => {
+  // function updKeyBtns(keysData, language) {
   const specialBtns = buildSpecialBtnsObj();
   const btns = document.querySelectorAll('.updated');
   // console.log(btns)
@@ -238,7 +252,7 @@ function updKeyBtns(keysData, language) {
 
     addAdditionalKey(keysData, btnId, language, btn, ShiftLeft, ShiftRight);
   });
-}
+};
 let capsPressed = false;
 window.addEventListener(
   'keydown',
@@ -247,16 +261,16 @@ window.addEventListener(
     const elID = e.code;
     const elem = document.querySelector(`#${elID}`);
     if (elem) {
-      const spBtns = {
-        CapsLock: false,
-        ShiftLeft: false,
-        ShiftRight: false,
-        ControlLeft: false,
-        ControlRight: false,
-        MetaLeft: false,
-        AltLeft: false,
-        AltRight: false,
-      };
+      /*  const spBtns = {
+         CapsLock: false,
+         ShiftLeft: false,
+         ShiftRight: false,
+         ControlLeft: false,
+         ControlRight: false,
+         MetaLeft: false,
+         AltLeft: false,
+         AltRight: false,
+       }; */
       if (elID in specBtns) {
         /*       const specialBtns = buildSpecialBtnsObj();
               //  console.log(elID, specialBtns);
@@ -291,7 +305,7 @@ window.addEventListener(
            //    document.querySelector('#ControlLeft').classList.remove('pressed')
            //   localStorage.setItem('mracoonLang', lang);
          } */
-        spBtns[elID] = !specBtns[elID];
+        //  spBtns[elID] = !specBtns[elID];
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
 
@@ -330,7 +344,7 @@ window.addEventListener(
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
       }
-      specBtns[elID] = !specBtns[elID];
+      // specBtns[elID] = !specBtns[elID];
     }
     updKeyBtns(keys, lang);
   },
@@ -353,7 +367,7 @@ keyboard.addEventListener('click', (e) => {
     } = specialBtns;
     if (elID in specBtns) {
       pressedBtn.classList.toggle('pressed');
-      specBtns[elID] = !specBtns[elID];
+      // specBtns[elID] = !specBtns[elID];
       if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
         lang = lang === 'en' ? 'ru' : 'en';
         document.querySelector('#AltLeft').classList.remove('pressed');
