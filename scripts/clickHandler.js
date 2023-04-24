@@ -2,7 +2,7 @@ import keys from './keys.js';
 import buildSpecialBtnsObj from './buildSpecialBtnsObj.js';
 import upDownNavHandler from './upDownNavHandler.js';
 
-const clickHandler = (btnId, lang) => {
+const clickHandler = (btnId, lang, copy = '') => {
   const textField = document.querySelector('textarea');
   textField.focus();
   let cursorPos = textField.selectionStart;
@@ -22,12 +22,19 @@ const clickHandler = (btnId, lang) => {
     newChar = keys[btnId]?.[lang]?.shiftKey || keys[btnId].en.shiftKey || newChar;
     newChar = newChar.toLowerCase();
   }
-
+  if (copy) {
+    newChar = copy; // localStorage.getItem('mracoonCopy');
+  }
   const firstSubstr = text.slice(0, cursorPos);
   const secondSubstr = text.slice(cursorPosEnd);
   if (newChar) { // add new char
     textField.value = firstSubstr + newChar + secondSubstr;
-    cursorPos += 1;
+    // cursorPos += 1;
+    if (copy) {
+      cursorPos += copy.length;
+    } else {
+      cursorPos += 1;
+    }
     cursorPosEnd = cursorPos;
   } else if (btnId === 'Backspace' && cursorPos > 0) {
     const newfirstString = cursorPos === cursorPosEnd ? firstSubstr.slice(0, -1) : firstSubstr;

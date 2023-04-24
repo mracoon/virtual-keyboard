@@ -17,7 +17,7 @@ const specBtns = {
   AltRight: false,
 };
 let lang = 'en';
-
+localStorage.setItem('mracoonCopy', '');
 if (localStorage.getItem('mracoonLang')) {
   lang = localStorage.getItem('mracoonLang');
 } else { localStorage.setItem('mracoonLang', lang); }
@@ -34,6 +34,12 @@ window.addEventListener(
     e.preventDefault();
     const elID = e.code;
     const elem = document.querySelector(`#${elID}`);
+    const specialBtns = buildSpecialBtnsObj();
+    const {
+      // AltLeft,
+      ControlLeft,
+      ControlRight,
+    } = specialBtns;
     if (elem) {
       if (elID in specBtns) {
         if (elID === 'CapsLock') {
@@ -48,8 +54,9 @@ window.addEventListener(
 
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
-
-      clickHandler(elID, lang);
+      if (!(((elID === 'KeyC') || (elID === 'KeyV')) && (ControlLeft || ControlRight))) {
+        clickHandler(elID, lang);
+      }
     }
   },
 );
@@ -59,6 +66,12 @@ window.addEventListener(
   (e) => {
     const elID = e.code;
     const elem = document.querySelector(`#${e.code}`);
+    const specialBtns = buildSpecialBtnsObj();
+    const {
+      AltLeft,
+      ControlLeft,
+      ControlRight,
+    } = specialBtns;
     if (elem) {
       if ((elID !== 'CapsLock')) {
         elem.classList.remove('pressed');
@@ -67,17 +80,33 @@ window.addEventListener(
       }
     }
     if (elID in specBtns) {
-      const specialBtns = buildSpecialBtnsObj();
+      /* const specialBtns = buildSpecialBtnsObj();
       const {
         AltLeft,
         ControlLeft,
-      } = specialBtns;
+      } = specialBtns; */
       if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
         lang = lang === 'en' ? 'ru' : 'en';
         document.querySelector('#AltLeft').classList.remove('pressed');
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
       }
+    }
+    if ((elID === 'KeyC') && (ControlLeft || ControlRight)) {
+      const textarea = document.querySelector('textarea');
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const copiedText = textarea.value.substring(start, end);
+      //  console.log(copiedText)
+      document.querySelector('#ControlRight').classList.remove('pressed');
+      document.querySelector('#ControlLeft').classList.remove('pressed');
+      localStorage.setItem('mracoonCopy', copiedText);
+    }
+    if ((elID === 'KeyV') && (ControlLeft || ControlRight)) {
+      document.querySelector('#ControlRight').classList.remove('pressed');
+      document.querySelector('#ControlLeft').classList.remove('pressed');
+
+      clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
     updKeyBtns(keys, lang);
   },
@@ -90,7 +119,7 @@ keyboard.addEventListener('click', (e) => {
     const specialBtns = buildSpecialBtnsObj();
     const {
       AltLeft,
-      ControlLeft,
+      ControlLeft, ControlRight,
     } = specialBtns;
     if (elID in specBtns) {
       pressedBtn.classList.toggle('pressed');
@@ -102,6 +131,24 @@ keyboard.addEventListener('click', (e) => {
       }
       updKeyBtns(keys, lang);
     }
-    clickHandler(elID, lang);
+    if ((elID === 'KeyC') && (ControlLeft || ControlRight)) {
+      const textarea = document.querySelector('textarea');
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const copiedText = textarea.value.substring(start, end);
+      //  console.log(copiedText)
+      document.querySelector('#ControlRight').classList.remove('pressed');
+      document.querySelector('#ControlLeft').classList.remove('pressed');
+      localStorage.setItem('mracoonCopy', copiedText);
+    }
+    if ((elID === 'KeyV') && (ControlLeft || ControlRight)) {
+      document.querySelector('#ControlRight').classList.remove('pressed');
+      document.querySelector('#ControlLeft').classList.remove('pressed');
+
+      clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
+    }
+    if (!(((elID === 'KeyC') || (elID === 'KeyV')) && (ControlLeft || ControlRight))) {
+      clickHandler(elID, lang);
+    }
   }
 });
