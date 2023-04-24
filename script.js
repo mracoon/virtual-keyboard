@@ -17,7 +17,7 @@ if (localStorage.getItem('mracoonLang')) {
 } else { localStorage.setItem('mracoonLang', lang); }
 // -----------create base structure---------------
 
-const body = document.querySelector('body');
+/* const body = document.querySelector('body');
 
 const container = document.createElement('div');
 container.classList.add('container');
@@ -44,10 +44,48 @@ for (let i = 1; i < 6; i += 1) {
 container.append(keyboard);
 
 // ---
-body.append(container);
+body.append(container); */
+/* const body = document.querySelector('body');
+const container = document.createElement('div');
 
+const textField = document.createElement('textarea');
+const keyboard = document.createElement('div'); */
+const buildLayout = () => {
+  const bodyElem = document.querySelector('body');
+  const containerElem = document.createElement('div');
+
+  const textFieldElem = document.createElement('textarea');
+  const keyboardElem = document.createElement('div');
+  containerElem.classList.add('container');
+  textFieldElem.autofocus = true;
+  // textField.cols = 20;
+  textFieldElem.rows = 10;
+  textFieldElem.value = '';
+
+  containerElem.append(textFieldElem);
+
+  keyboardElem.classList.add('keyboard__container');
+
+  for (let i = 1; i < 6; i += 1) {
+    const row = document.createElement('div');
+    const rowID = `row-${i}`;
+    row.classList.add(rowID, 'keyboard__row');
+    row.id = rowID;
+    keyboardElem.append(row);
+  }
+
+  containerElem.append(keyboardElem);
+
+  // ---
+  bodyElem.append(containerElem);
+};
 // -----------------------------------------------------
+buildLayout();
+// const body = document.querySelector('body');
+// const container = document.querySelector('.container');
 
+const textField = document.querySelector('textarea');
+const keyboard = document.querySelector('.keyboard__container');
 const clearKeyboard = () => {
   // function clearKeyboard()
   const kbRows = document.querySelectorAll('.keyboard__row');
