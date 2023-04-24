@@ -11,7 +11,8 @@ const keys = {
       shiftKey: '~',
     },
     ru: {
-      key: 'ё', // shiftKey: 'Ё'
+      key: 'ё',
+      shiftKey: 'Ё',
     },
   },
 
