@@ -166,6 +166,7 @@ function upDownNavHandler(startCursorPos, text, dir = 'down') {
 function clickHandler(btnId) {
   textField.focus();
   let cursorPos = textField.selectionStart;
+  let cursorPosEnd = textField.selectionEnd;
   const specialBtns = buildSpecialBtnsObj();
   const text = textField.value;
   const { CapsLock, ShiftLeft, ShiftRight } = specialBtns;
@@ -182,28 +183,37 @@ function clickHandler(btnId) {
   }
 
   const firstSubstr = text.slice(0, cursorPos);
-  const secondSubstr = text.slice(cursorPos);
+  const secondSubstr = text.slice(cursorPosEnd);
   if (newChar) { // add new char
     textField.value = firstSubstr + newChar + secondSubstr;
     cursorPos += 1;
+    cursorPosEnd = cursorPos;
   } else if (btnId === 'Backspace' && cursorPos > 0) {
-    const newfirstString = firstSubstr.slice(0, -1);
+    const newfirstString = cursorPos === cursorPosEnd ? firstSubstr.slice(0, -1) : firstSubstr;
     textField.value = newfirstString + newChar + secondSubstr;
-    cursorPos -= 1;
-  } else if (btnId === 'Delete') { // TODO: удаление выделенного текста
-    const newSecondString = secondSubstr.slice(1);
+    if (cursorPos === cursorPosEnd) {
+      cursorPos -= 1;
+    }
+    cursorPosEnd = cursorPos;
+  } else if (btnId === 'Delete') {
+    const newSecondString = cursorPos === cursorPosEnd ? secondSubstr.slice(1) : secondSubstr;
     textField.value = firstSubstr + newChar + newSecondString;
+    cursorPosEnd = cursorPos;
   } else if (btnId === 'ArrowLeft' && cursorPos > 0) {
     cursorPos -= 1;
+    cursorPosEnd = cursorPos;
   } else if (btnId === 'ArrowRight') {
     cursorPos += 1;
+    cursorPosEnd = cursorPos;
   } else if (btnId === 'ArrowDown') {
     cursorPos = upDownNavHandler(cursorPos, text);
+    cursorPosEnd = cursorPos;
   } else if (btnId === 'ArrowUp') {
     cursorPos = upDownNavHandler(cursorPos, text, 'up');
+    cursorPosEnd = cursorPos;
   }
   textField.selectionStart = cursorPos;
-  textField.selectionEnd = cursorPos;
+  textField.selectionEnd = cursorPosEnd;
 }
 
 function updKeyBtns(keysData, language) {
