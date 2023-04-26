@@ -452,3 +452,79 @@ body {
 .notepad-tab::before {
   top: 2.5px;
 }
+
+/*------------------------------*/
+.inf-container {
+  align-self: flex-end;
+  /*  width: 100%; */
+  width: 300px;
+  /*   min-height: 100px; */
+  background-color: #ffffe1;
+  font-family: 'Roboto';
+
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 5px;
+  position: relative;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.inf-container::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  right: 20px;
+  width: 0;
+  height: 0;
+
+  border: 7px solid transparent;
+  border-top: 7px solid #ffffe1;
+  border-right: 7px solid #ffffe1;
+}
+
+.inf__header,
+.hotkeys-list,
+.inf__text {
+  margin: 0;
+}
+
+.inf__header {
+  font-size: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.inf__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: url('./assets/information.png') no-repeat;
+  background-size: contain;
+}
+
+.hotkey {
+  color: rgb(10, 111, 11);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+}

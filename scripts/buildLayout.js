@@ -1,4 +1,5 @@
 import buildTaskBar from './buildTaskBar.js';
+import buildInfoWindow from './buildInfoWindow.js';
 
 const buildLayout = () => {
   const bodyElem = document.querySelector('body');
@@ -81,6 +82,8 @@ const buildLayout = () => {
   containerElem.append(keyboardElem);
   // **********************keyboard end*******************************
   bodyElem.append(containerElem);
+
+  buildInfoWindow();
   buildTaskBar();
 };
 
