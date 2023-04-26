@@ -1,3 +1,5 @@
+import buildTaskBar from './buildTaskBar.js';
+
 const buildLayout = () => {
   const bodyElem = document.querySelector('body');
   const containerElem = document.createElement('div');
@@ -79,6 +81,7 @@ const buildLayout = () => {
   containerElem.append(keyboardElem);
   // **********************keyboard end*******************************
   bodyElem.append(containerElem);
+  buildTaskBar();
 };
 
 export default buildLayout;
