@@ -24,6 +24,8 @@ if (localStorage.getItem('mracoonLang')) {
 
 buildLayout();
 
+const langInd = document.querySelector('.lang');
+langInd.textContent = lang.toUpperCase();
 const keyboard = document.querySelector('.keyboard__container');
 
 generateKeysBtns(keys, lang);
@@ -90,6 +92,7 @@ window.addEventListener(
         document.querySelector('#AltLeft').classList.remove('pressed');
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
+        langInd.textContent = lang.toUpperCase();
       }
     }
     if ((elID === 'KeyC') && (ControlLeft || ControlRight)) {
@@ -128,6 +131,7 @@ keyboard.addEventListener('click', (e) => {
         document.querySelector('#AltLeft').classList.remove('pressed');
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
+        langInd.textContent = lang.toUpperCase();
       }
       updKeyBtns(keys, lang);
     }
