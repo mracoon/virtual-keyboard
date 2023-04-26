@@ -528,3 +528,28 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
+
+html {
+  background: url('/assets/win-bg.jpg') no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
+}
+
+body {
+  background: none;
+  padding-top: 10px;
+}
+
+
+@media screen and (max-width: 900px) {
+
+  .notepad,
+  textarea {
+    width: 100%;
+  }
+
+  textarea {
+    max-width: 100%;
+  }
+}
