@@ -31,6 +31,7 @@ body {
   text-align: center;
   cursor: pointer;
   user-select: none;
+  transition: 0.05s;
 }
 
 .standart-btn {
@@ -48,7 +49,7 @@ body {
 
 .pressed,
 .button:active {
-  background-color: blueviolet;
+  background-color: #0076d7;
   border-style: inset;
 }
 
@@ -85,7 +86,6 @@ body {
   gap: 5px;
   /* display: flex;*/
   display: grid;
-  background-color: brown;
 }
 
 .space-btn {
@@ -295,4 +295,67 @@ body {
   list-style-type: none;
   color: #000000;
   margin-right: 20px;
+}
+
+/*-----------------------------------*/
+.container {
+  row-gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.keyboard__container {
+  background-color: #707070;
+  border-radius: 10px;
+  font-family: 'Roboto';
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  grid-template-rows: repeat(5, 45px);
+  max-width: 800px;
+}
+
+/*-----------*/
+.button {
+
+  height: 45px;
+  /* display: block;*/
+  line-height: 45px;
+
+}
+
+.standart-btn {
+  width: 45px;
+  height: 45px;
+}
+
+
+
+
+.row-1 {
+  grid-template-columns: repeat(13, 45px) 1fr;
+}
+
+.row-2 {
+  grid-template-columns: 1fr repeat(13, 45px) 1fr;
+}
+
+.row-3 {
+  grid-template-columns: 1fr repeat(11, 45px) 1fr;
+}
+
+.row-4 {
+  grid-template-columns: 1fr repeat(11, 45px) 95px;
+}
+
+.row-5 {
+  /*   grid-template-columns: 60px repeat(2, 40px) 1fr 40px 60px repeat(4, 40px); */
+  grid-template-columns: repeat(3, 45px) 1fr repeat(5, 45px);
+}
+
+.right-shift {
+
+  width: 95px;
 }
