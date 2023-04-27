@@ -2,7 +2,8 @@ import keys from './keys.js';
 import buildSpecialBtnsObj from './buildSpecialBtnsObj.js';
 import upDownNavHandler from './upDownNavHandler.js';
 
-const clickHandler = (btnId, lang, copy = '') => {
+const clickHandler = (btnId, lang, copy = '', navMode = false) => {
+  const navBtnsId = ['ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp'];
   const textField = document.querySelector('textarea');
   textField.focus();
   let cursorPos = textField.selectionStart;
@@ -27,7 +28,7 @@ const clickHandler = (btnId, lang, copy = '') => {
   }
   const firstSubstr = text.slice(0, cursorPos);
   const secondSubstr = text.slice(cursorPosEnd);
-  if (newChar) { // add new char
+  if (newChar && !(navBtnsId.includes(btnId) && navMode)) { // add new char
     textField.value = firstSubstr + newChar + secondSubstr;
     if (copy) {
       cursorPos += copy.length;

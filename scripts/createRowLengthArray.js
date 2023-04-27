@@ -9,20 +9,14 @@ function splitRow(row1, numChars, res = []) {
   return res;
 }
 
-const createRowLengthArray = (text, charInRow) => {
+const createRowLengthArray = (text1, charInRow) => {
+  const rows = [];
+  text1.split('\n').forEach((row) => {
+    rows.push(splitRow(row, charInRow, []).join('\n'));
+  });
+  const text = rows.join('\n');
   let sum = 0;
-  const allRows = text.split('\n');
-  let res = [];
-  if (Math.ceil(text.length / charInRow) > allRows.length) {
-    for (let i = 0; i < allRows.length; i += 1) {
-      res.push(splitRow(allRows[i], charInRow));
-    }
-  } else {
-    res = [...allRows];
-  }
-
-  res = res.flat();
-  return res.map((el, i) => {
+  return text.split('\n').map((el, i) => {
     let addNL = 1;
     if (i === 0) { addNL = 0; }
     sum += el.length + addNL;

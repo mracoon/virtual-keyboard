@@ -8,6 +8,7 @@ import soundPlay from './scripts/playSound.js';
 
 let isPlaySound = true;
 let capsPressed = false;
+let navMode = false;
 const specBtns = {
   CapsLock: false,
   ShiftLeft: false,
@@ -60,7 +61,7 @@ window.addEventListener(
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
       if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA') || (elID === 'KeyX')) && (ControlLeft || ControlRight))) {
-        clickHandler(elID, lang);
+        clickHandler(elID, lang, '', navMode);
       }
     }
   },
@@ -76,6 +77,7 @@ window.addEventListener(
       AltLeft,
       ControlLeft,
       ControlRight,
+      AltRight,
     } = specialBtns;
     if (elem) {
       if ((elID !== 'CapsLock')) {
@@ -95,6 +97,11 @@ window.addEventListener(
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
         langInd.textContent = lang.toUpperCase();
+      }
+      if (((elID === 'AltRight') && ControlRight) || ((elID === 'ControlRight') && AltRight)) {
+        document.querySelector('#AltRight').classList.remove('pressed');
+        document.querySelector('#ControlRight').classList.remove('pressed');
+        navMode = !navMode;
       }
     }
     if (((elID === 'KeyC') || (elID === 'KeyX')) && (ControlLeft || ControlRight)) {
@@ -131,6 +138,7 @@ keyboard.addEventListener('click', (e) => {
     const {
       AltLeft,
       ControlLeft, ControlRight,
+      AltRight,
     } = specialBtns;
 
     if (elID in specBtns) {
@@ -147,6 +155,11 @@ keyboard.addEventListener('click', (e) => {
         document.querySelector('#MetaLeft').classList.remove('pressed');
       }
       updKeyBtns(keys, lang);
+      if (((elID === 'AltRight') && ControlRight) || ((elID === 'ControlRight') && AltRight)) {
+        document.querySelector('#AltRight').classList.remove('pressed');
+        document.querySelector('#ControlRight').classList.remove('pressed');
+        navMode = !navMode;
+      }
     }
     if (((elID === 'KeyC') || (elID === 'KeyX')) && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
@@ -176,7 +189,7 @@ keyboard.addEventListener('click', (e) => {
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
     if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA') || (elID === 'KeyX')) && (ControlLeft || ControlRight))) {
-      clickHandler(elID, lang);
+      clickHandler(elID, lang, '', navMode);
     }
   }
 });

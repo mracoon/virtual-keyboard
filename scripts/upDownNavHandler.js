@@ -3,11 +3,11 @@ import findCursorPos from './findCursorPos.js';
 
 const upDownNavHandler = (startCursorPos, text, dir = 'down') => {
   const charInRow = 91;
+
   const rowLengths = createRowLengthArray(text, charInRow);
   const curCursorRow = findCursorPos(rowLengths, startCursorPos);
   let newCursorPos = startCursorPos;
   const totalRows = rowLengths.length;
-
   const prevRow = curCursorRow > 0 ? rowLengths[curCursorRow - 1] : [-1, -1];
   const [prevRowLength, prevSum] = prevRow;
 

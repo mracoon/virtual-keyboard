@@ -611,7 +611,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '↑',
     en: {
-      key: '',
+      key: '↑',
     },
   },
   ShiftRight: {
@@ -668,7 +668,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '←',
     en: {
-      key: '',
+      key: '←',
     },
   },
   ArrowDown: {
@@ -676,7 +676,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '↓',
     en: {
-      key: '',
+      key: '↓',
     },
   },
 
@@ -685,7 +685,7 @@ const keys = {
     classes: [classes.common.standart],
     specName: '→',
     en: {
-      key: '',
+      key: '→',
     },
   },
   ControlRight: {

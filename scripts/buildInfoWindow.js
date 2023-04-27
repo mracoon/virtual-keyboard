@@ -16,7 +16,8 @@ const buildInfoWindow = () => {
     ['Ctrl + V', ' - paste copied text'],
     ['Ctrl + X', ' - cut text'],
     ['Ctrl + A', ' - select all text'],
-    ['Left Ctrl + Left Alt', ' - switch language']];
+    ['Left Ctrl + Left Alt', ' - switch language'],
+    ['Right Ctrl + Right Alt', ' - switch navigation / input arrow symbols (default)']];
 
   hKeys.forEach((item) => {
     const [hotkeyVal, descriptionVal] = item;
