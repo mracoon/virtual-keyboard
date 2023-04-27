@@ -27,7 +27,7 @@ const upDownNavHandler = (startCursorPos, text, dir = 'down') => {
       break;
     default: // down
       if (nextRowLength <= charFromBeginingRow) {
-        newCursorPos = nextSum;// nextRow[1]
+        newCursorPos = nextSum;
       } else {
         newCursorPos = charFromBeginingRow + rowLengths[curCursorRow][1] + 1; // standart
       }

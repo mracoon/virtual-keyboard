@@ -180,11 +180,9 @@ const keys = {
     specName: '',
     en: {
       key: 'q',
-      //  shiftKey: 'Q',
     },
     ru: {
       key: 'й',
-      //  shiftKey: 'Й',
     },
   },
 
@@ -194,11 +192,9 @@ const keys = {
     specName: '',
     en: {
       key: 'w',
-      //  shiftKey: 'W',
     },
     ru: {
       key: 'ц',
-      //  shiftKey: 'Ц',
     },
   },
 
@@ -208,11 +204,9 @@ const keys = {
     specName: '',
     en: {
       key: 'e',
-      // shiftKey: 'E',
     },
     ru: {
       key: 'у',
-      // shiftKey: 'У',
     },
   },
 
@@ -222,11 +216,9 @@ const keys = {
     specName: '',
     en: {
       key: 'r',
-      //  shiftKey: 'R',
     },
     ru: {
       key: 'к',
-      //  shiftKey: 'К',
     },
   },
 
@@ -236,11 +228,9 @@ const keys = {
     specName: '',
     en: {
       key: 't',
-      // shiftKey: 'T',
     },
     ru: {
       key: 'е',
-      // shiftKey: 'Е',
     },
   },
   KeyY: {
@@ -249,11 +239,9 @@ const keys = {
     specName: '',
     en: {
       key: 'y',
-      // shiftKey: 'Y',
     },
     ru: {
       key: 'н',
-      // shiftKey: 'Н',
     },
   },
   KeyU: {
@@ -262,11 +250,9 @@ const keys = {
     specName: '',
     en: {
       key: 'u',
-      //  shiftKey: 'U',
     },
     ru: {
       key: 'г',
-      //  shiftKey: 'Г',
     },
   },
   KeyI: {
@@ -275,11 +261,9 @@ const keys = {
     specName: '',
     en: {
       key: 'i',
-      // shiftKey: 'I',
     },
     ru: {
       key: 'ш',
-      //  shiftKey: 'Ш',
     },
   },
   KeyO: {
@@ -288,11 +272,9 @@ const keys = {
     specName: '',
     en: {
       key: 'o',
-      //  shiftKey: 'O',
     },
     ru: {
       key: 'щ',
-      // shiftKey: 'Щ',
     },
   },
   KeyP: {
@@ -301,11 +283,9 @@ const keys = {
     specName: '',
     en: {
       key: 'p',
-      //   shiftKey: 'P',
     },
     ru: {
       key: 'з',
-      //   shiftKey: 'З',
     },
   },
   BracketLeft: {
@@ -369,11 +349,9 @@ const keys = {
     specName: '',
     en: {
       key: 'a',
-      //  shiftKey: 'A',
     },
     ru: {
       key: 'ф',
-      // shiftKey: 'Ф',
     },
   },
   KeyS: {
@@ -382,11 +360,9 @@ const keys = {
     specName: '',
     en: {
       key: 's',
-      //   shiftKey: 'S',
     },
     ru: {
       key: 'ы',
-      //   shiftKey: 'Ы',
     },
   },
 
@@ -396,11 +372,9 @@ const keys = {
     specName: '',
     en: {
       key: 'd',
-      //   shiftKey: 'D',
     },
     ru: {
       key: 'в',
-      //  shiftKey: 'В',
     },
   },
   KeyF: {
@@ -409,11 +383,9 @@ const keys = {
     specName: '',
     en: {
       key: 'f',
-      //  shiftKey: 'F',
     },
     ru: {
       key: 'а',
-      //  shiftKey: 'А',
     },
   },
 
@@ -423,11 +395,9 @@ const keys = {
     specName: '',
     en: {
       key: 'g',
-      //   shiftKey: 'G',
     },
     ru: {
       key: 'п',
-      //  shiftKey: 'П',
     },
   },
   KeyH: {
@@ -436,11 +406,9 @@ const keys = {
     specName: '',
     en: {
       key: 'h',
-      //  shiftKey: 'H',
     },
     ru: {
       key: 'р',
-      //  shiftKey: 'Р',
     },
   },
   KeyJ: {
@@ -449,11 +417,9 @@ const keys = {
     specName: '',
     en: {
       key: 'j',
-      //  shiftKey: 'J',
     },
     ru: {
       key: 'о',
-      // shiftKey: 'О',
     },
   },
   KeyK: {
@@ -462,11 +428,9 @@ const keys = {
     specName: '',
     en: {
       key: 'k',
-      //  shiftKey: 'K',
     },
     ru: {
       key: 'л',
-      //  shiftKey: 'Л',
     },
   },
 
@@ -476,11 +440,9 @@ const keys = {
     specName: '',
     en: {
       key: 'l',
-      //  shiftKey: 'L',
     },
     ru: {
       key: 'д',
-      //  shiftKey: 'Д',
     },
   },
 
@@ -533,11 +495,9 @@ const keys = {
     specName: '',
     en: {
       key: 'z',
-      //   shiftKey: 'Z',
     },
     ru: {
       key: 'я',
-      //  shiftKey: 'Я',
     },
   },
   KeyX: {
@@ -546,11 +506,9 @@ const keys = {
     specName: '',
     en: {
       key: 'x',
-      //   shiftKey: 'X',
     },
     ru: {
       key: 'ч',
-      //  shiftKey: 'Ч',
     },
   },
   KeyC: {
@@ -559,11 +517,9 @@ const keys = {
     specName: '',
     en: {
       key: 'c',
-      //  shiftKey: 'C',
     },
     ru: {
       key: 'с',
-      //  shiftKey: 'С',
     },
   },
   KeyV: {
@@ -572,11 +528,9 @@ const keys = {
     specName: '',
     en: {
       key: 'v',
-      //   shiftKey: 'V',
     },
     ru: {
       key: 'м',
-      //   shiftKey: 'М',
     },
   },
   KeyB: {
@@ -585,11 +539,9 @@ const keys = {
     specName: '',
     en: {
       key: 'b',
-      //  shiftKey: 'B',
     },
     ru: {
       key: 'и',
-      //  shiftKey: 'И',
     },
   },
 
@@ -599,11 +551,9 @@ const keys = {
     specName: '',
     en: {
       key: 'n',
-      //  shiftKey: 'N',
     },
     ru: {
       key: 'т',
-      //  shiftKey: 'Т',
     },
   },
   KeyM: {
@@ -612,11 +562,9 @@ const keys = {
     specName: '',
     en: {
       key: 'm',
-      //  shiftKey: 'M',
     },
     ru: {
       key: 'ь',
-      //  shiftKey: 'Ь',
     },
   },
   Comma: {
@@ -661,7 +609,7 @@ const keys = {
   ArrowUp: {
     row: 'row-4',
     classes: [classes.common.standart],
-    specName: '↑', // \u2191
+    specName: '↑',
     en: {
       key: '',
     },
@@ -715,19 +663,10 @@ const keys = {
       key: '',
     },
   },
-  /*  ControlRight: {
-     row: 'row-5',
-     classes: [classes.common.medium, classes.special.ctrl],
-     specName: 'Ctrl',
-     en: {
-       key: '',
-     },
-   }, */
-
   ArrowLeft: {
     row: 'row-5',
     classes: [classes.common.standart],
-    specName: '←', // \u2190
+    specName: '←',
     en: {
       key: '',
     },
@@ -735,7 +674,7 @@ const keys = {
   ArrowDown: {
     row: 'row-5',
     classes: [classes.common.standart],
-    specName: '↓', // \u2193
+    specName: '↓',
     en: {
       key: '',
     },
@@ -744,20 +683,11 @@ const keys = {
   ArrowRight: {
     row: 'row-5',
     classes: [classes.common.standart],
-    specName: '→', // \u2192
+    specName: '→',
     en: {
       key: '',
     },
   },
-
-  /*  NumpadMultiply: {
-     row: 'row-5',
-     classes: [classes.common.standart],
-     specName: '',
-     en: {
-       key: '*',
-     },
-   }, */
   ControlRight: {
     row: 'row-5',
     classes: [classes.common.standart, classes.special.ctrl],

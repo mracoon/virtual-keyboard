@@ -56,9 +56,6 @@ const buildLayout = () => {
   textFieldElem.classList.add('textarea');
 
   textFieldElem.autofocus = true;
-  /*   textFieldElem.cols = 10;
-    textFieldElem.rows = 10;
-    textFieldElem.wrap = 'hard'; */
   textFieldElem.value = '';
 
   notepad.append(textFieldElem);

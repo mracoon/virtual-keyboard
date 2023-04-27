@@ -12,7 +12,7 @@ const classes = {
     enter: 'enter-btn',
     ctrl: 'ctrl-btn',
     space: 'space-btn',
-    rightShift: 'right-shift'/* 'left-shift-btn'  */,
+    rightShift: 'right-shift',
     leftShift: 'left-shift-btn',
   },
 };

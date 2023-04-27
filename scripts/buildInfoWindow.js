@@ -25,7 +25,6 @@ const buildInfoWindow = () => {
     hotkey.textContent = hotkeyVal;
     hotkey.classList.add('hotkey');
     listItem.append(hotkey);
-    // listItem.textContent = description
     const descr = document.createElement('span');
     descr.textContent = descriptionVal;
     descr.classList.add('description');

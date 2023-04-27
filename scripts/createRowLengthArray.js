@@ -1,16 +1,3 @@
-/* const createRowLengthArray = (text) => {
-  let sum = 0;
-  return text.split('\n').map((el, i) => {
-    let addNL = 1;
-    if (i === 0) { addNL = 0; }
-    sum += el.length + addNL;
-    return [el.length, sum];
-  }); // rowLengths: [row length, sum]
-};
-
-export default createRowLengthArray;
- */
-
 function splitRow(row1, numChars, res = []) {
   res.push(row1.slice(0, numChars));
   const row = row1.slice(numChars);
@@ -21,10 +8,6 @@ function splitRow(row1, numChars, res = []) {
   }
   return res;
 }
-
-// console.log(splitRow('11111111112222222222333333333300', 10))
-
-// console.log(text1.split('\n'))
 
 const createRowLengthArray = (text, charInRow) => {
   let sum = 0;

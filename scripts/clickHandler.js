@@ -23,13 +23,12 @@ const clickHandler = (btnId, lang, copy = '') => {
     newChar = newChar.toLowerCase();
   }
   if (copy) {
-    newChar = copy; // localStorage.getItem('mracoonCopy');
+    newChar = copy;
   }
   const firstSubstr = text.slice(0, cursorPos);
   const secondSubstr = text.slice(cursorPosEnd);
   if (newChar) { // add new char
     textField.value = firstSubstr + newChar + secondSubstr;
-    // cursorPos += 1;
     if (copy) {
       cursorPos += copy.length;
     } else {

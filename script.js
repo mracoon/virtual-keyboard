@@ -7,13 +7,6 @@ import updKeyBtns from './scripts/updKeyBtns.js';
 import soundPlay from './scripts/playSound.js';
 
 let isPlaySound = true;
-/* function soundPlay(isPlay) {
-  if (isPlay) {
-    const audio = new Audio();
-    audio.src = './assets/key-down.mp3';
-    audio.play()
-  }
-} */
 let capsPressed = false;
 const specBtns = {
   CapsLock: false,
@@ -47,7 +40,6 @@ window.addEventListener(
     const elem = document.querySelector(`#${elID}`);
     const specialBtns = buildSpecialBtnsObj();
     const {
-      // AltLeft,
       ControlLeft,
       ControlRight,
     } = specialBtns;
@@ -97,11 +89,6 @@ window.addEventListener(
       document.querySelector('#MetaLeft').classList.remove('pressed');
     }
     if (elID in specBtns) {
-      /* const specialBtns = buildSpecialBtnsObj();
-      const {
-        AltLeft,
-        ControlLeft,
-      } = specialBtns; */
       if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
         lang = lang === 'en' ? 'ru' : 'en';
         document.querySelector('#AltLeft').classList.remove('pressed');
@@ -115,7 +102,7 @@ window.addEventListener(
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
       const copiedText = textarea.value.substring(start, end);
-      //  console.log(copiedText)
+
       document.querySelector('#ControlRight').classList.remove('pressed');
       document.querySelector('#ControlLeft').classList.remove('pressed');
       localStorage.setItem('mracoonCopy', copiedText);
@@ -126,14 +113,8 @@ window.addEventListener(
     if ((elID === 'KeyA') && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
       textarea.select();
-
-      // document.querySelector('#ControlRight').classList.remove('pressed');
-      // document.querySelector('#ControlLeft').classList.remove('pressed');
     }
     if ((elID === 'KeyV') && (ControlLeft || ControlRight)) {
-      //   document.querySelector('#ControlRight').classList.remove('pressed');
-      //   document.querySelector('#ControlLeft').classList.remove('pressed');
-
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
     updKeyBtns(keys, lang);
@@ -172,7 +153,6 @@ keyboard.addEventListener('click', (e) => {
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
       const copiedText = textarea.value.substring(start, end);
-      //  console.log(copiedText)
 
       document.querySelector('#ControlRight').classList.remove('pressed');
       document.querySelector('#ControlLeft').classList.remove('pressed');
