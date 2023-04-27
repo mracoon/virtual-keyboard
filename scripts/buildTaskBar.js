@@ -7,6 +7,11 @@ const buildTaskBar = () => {
   const startBtn = document.createElement('div');
   startBtn.classList.add('start-btn');
   startBtn.textContent = 'start';
+
+  const startMenu = document.createElement('div');
+  startMenu.classList.add('start-menu');
+
+  startBtn.append(startMenu);
   taskBar.append(startBtn);
 
   const windowsContainer = document.createElement('div');

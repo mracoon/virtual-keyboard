@@ -81,6 +81,10 @@ window.addEventListener(
         capsPressed = !capsPressed;
       }
     }
+    if (elID === 'MetaLeft') {
+      document.querySelector('.start-menu').classList.toggle('start-menu_active');
+      document.querySelector('#MetaLeft').classList.remove('pressed');
+    }
     if (elID in specBtns) {
       /* const specialBtns = buildSpecialBtnsObj();
       const {
@@ -124,6 +128,7 @@ keyboard.addEventListener('click', (e) => {
       AltLeft,
       ControlLeft, ControlRight,
     } = specialBtns;
+
     if (elID in specBtns) {
       pressedBtn.classList.toggle('pressed');
       if (((elID === 'AltLeft') && ControlLeft) || ((elID === 'ControlLeft') && AltLeft)) {
@@ -132,6 +137,10 @@ keyboard.addEventListener('click', (e) => {
         document.querySelector('#ControlLeft').classList.remove('pressed');
         localStorage.setItem('mracoonLang', lang);
         langInd.textContent = lang.toUpperCase();
+      }
+      if (elID === 'MetaLeft') {
+        document.querySelector('.start-menu').classList.toggle('start-menu_active');
+        document.querySelector('#MetaLeft').classList.remove('pressed');
       }
       updKeyBtns(keys, lang);
     }
@@ -153,6 +162,14 @@ keyboard.addEventListener('click', (e) => {
     }
     if (!(((elID === 'KeyC') || (elID === 'KeyV')) && (ControlLeft || ControlRight))) {
       clickHandler(elID, lang);
+    }
+  }
+});
+
+window.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('start-menu') && (e.target.id !== 'MetaLeft')) {
+    if (document.querySelector('.start-menu').classList.contains('start-menu_active')) {
+      document.querySelector('.start-menu').classList.remove('start-menu_active');
     }
   }
 });

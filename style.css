@@ -333,9 +333,6 @@ body {
   height: 45px;
 }
 
-
-
-
 .row-1 {
   grid-template-columns: repeat(13, 45px) 1fr;
 }
@@ -552,4 +549,21 @@ body {
   textarea {
     max-width: 100%;
   }
+}
+.start-menu{
+position: absolute;
+bottom: 30px;
+left: 0;
+width: 380px;
+height: 0;
+background: url('./assets/start-menu.png') no-repeat;
+background-size: cover;
+z-index: 2;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+transition: 0.3s;
+}
+
+.start-menu_active{
+  height: 478px;
 }
