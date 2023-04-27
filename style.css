@@ -3,7 +3,7 @@
 }
 
 html {
-  background: url('/assets/win-bg.jpg') no-repeat;
+  background: url('./assets/win-bg.png') no-repeat;
   background-size: cover;
   min-height: 100vh;
   height: 100%;
