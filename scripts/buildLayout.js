@@ -11,7 +11,7 @@ const buildLayout = () => {
   // --------------notepadHeader start------------------
   const notepadHeader = document.createElement('div');
   notepadHeader.classList.add('notepad__header');
-  notepadHeader.textContent = 'Untitled - Notepad';
+  notepadHeader.textContent = 'RSS Virtual Keyboard - Notepad';
   // --------------notepadBtns start------------------
   const notepadBtnsContainer = document.createElement('div');
   notepadBtnsContainer.classList.add('notepad__btns-container');
