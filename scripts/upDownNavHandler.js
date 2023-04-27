@@ -2,7 +2,8 @@ import createRowLengthArray from './createRowLengthArray.js';
 import findCursorPos from './findCursorPos.js';
 
 const upDownNavHandler = (startCursorPos, text, dir = 'down') => {
-  const rowLengths = createRowLengthArray(text, true);
+  const charInRow = 91;
+  const rowLengths = createRowLengthArray(text, charInRow);
   const curCursorRow = findCursorPos(rowLengths, startCursorPos);
   let newCursorPos = startCursorPos;
   const totalRows = rowLengths.length;

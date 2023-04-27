@@ -538,7 +538,7 @@ body {
   padding-top: 10px;
 }
 
-
+/* 
 @media screen and (max-width: 900px) {
 
   .notepad,
@@ -549,7 +549,7 @@ body {
   textarea {
     max-width: 100%;
   }
-}
+} */
 .start-menu{
 position: absolute;
 bottom: 30px;

@@ -36,13 +36,15 @@ const clickHandler = (btnId, lang, copy = '') => {
       cursorPos += 1;
     }
     cursorPosEnd = cursorPos;
-  } else if (btnId === 'Backspace' && cursorPos > 0) {
-    const newfirstString = cursorPos === cursorPosEnd ? firstSubstr.slice(0, -1) : firstSubstr;
-    textField.value = newfirstString + newChar + secondSubstr;
-    if (cursorPos === cursorPosEnd) {
-      cursorPos -= 1;
+  } else if (btnId === 'Backspace') {
+    if (cursorPos > 0 || ((cursorPos === 0) && cursorPosEnd > cursorPos)) {
+      const newfirstString = cursorPos === cursorPosEnd ? firstSubstr.slice(0, -1) : firstSubstr;
+      textField.value = newfirstString + newChar + secondSubstr;
+      if (cursorPos === cursorPosEnd) {
+        cursorPos -= 1;
+      }
+      cursorPosEnd = cursorPos;
     }
-    cursorPosEnd = cursorPos;
   } else if (btnId === 'Delete') {
     const newSecondString = cursorPos === cursorPosEnd ? secondSubstr.slice(1) : secondSubstr;
     textField.value = firstSubstr + newChar + newSecondString;
