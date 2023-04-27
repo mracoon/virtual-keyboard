@@ -67,7 +67,7 @@ window.addEventListener(
 
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
-      if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA')) && (ControlLeft || ControlRight))) {
+      if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA') || (elID === 'KeyX')) && (ControlLeft || ControlRight))) {
         clickHandler(elID, lang);
       }
     }
@@ -110,7 +110,7 @@ window.addEventListener(
         langInd.textContent = lang.toUpperCase();
       }
     }
-    if ((elID === 'KeyC') && (ControlLeft || ControlRight)) {
+    if (((elID === 'KeyC') || (elID === 'KeyX')) && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
@@ -119,6 +119,9 @@ window.addEventListener(
       document.querySelector('#ControlRight').classList.remove('pressed');
       document.querySelector('#ControlLeft').classList.remove('pressed');
       localStorage.setItem('mracoonCopy', copiedText);
+      if ((elID === 'KeyX')) {
+        clickHandler('Delete', lang, '');
+      }
     }
     if ((elID === 'KeyA') && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
@@ -164,16 +167,21 @@ keyboard.addEventListener('click', (e) => {
       }
       updKeyBtns(keys, lang);
     }
-    if ((elID === 'KeyC') && (ControlLeft || ControlRight)) {
+    if (((elID === 'KeyC') || (elID === 'KeyX')) && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
       const copiedText = textarea.value.substring(start, end);
       //  console.log(copiedText)
+
       document.querySelector('#ControlRight').classList.remove('pressed');
       document.querySelector('#ControlLeft').classList.remove('pressed');
       localStorage.setItem('mracoonCopy', copiedText);
+      if ((elID === 'KeyX')) {
+        clickHandler('Delete', lang, '');
+      }
     }
+
     if ((elID === 'KeyA') && (ControlLeft || ControlRight)) {
       const textarea = document.querySelector('textarea');
       textarea.select();
@@ -187,7 +195,7 @@ keyboard.addEventListener('click', (e) => {
 
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
-    if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA')) && (ControlLeft || ControlRight))) {
+    if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA') || (elID === 'KeyX')) && (ControlLeft || ControlRight))) {
       clickHandler(elID, lang);
     }
   }
