@@ -12,7 +12,10 @@ const buildInfoWindow = () => {
   const hotkeysList = document.createElement('h3');
   hotkeysList.classList.add('hotkeys-list');
 
-  const hKeys = [['Ctrl + C', ' - copy text'], ['Ctrl + V', ' - paste text'], ['Left Ctrl + Left Alt', ' - switch language']];
+  const hKeys = [['Ctrl + C', ' - copy text'],
+    ['Ctrl + V', ' - paste text'],
+    ['Ctrl + A', ' - select all text'],
+    ['Left Ctrl + Left Alt', ' - switch language']];
 
   hKeys.forEach((item) => {
     const [hotkeyVal, descriptionVal] = item;

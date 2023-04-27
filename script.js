@@ -56,7 +56,7 @@ window.addEventListener(
 
         updKeyBtns(keys, lang);
       } else { elem.classList.add('pressed'); }
-      if (!(((elID === 'KeyC') || (elID === 'KeyV')) && (ControlLeft || ControlRight))) {
+      if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA')) && (ControlLeft || ControlRight))) {
         clickHandler(elID, lang);
       }
     }
@@ -109,9 +109,16 @@ window.addEventListener(
       document.querySelector('#ControlLeft').classList.remove('pressed');
       localStorage.setItem('mracoonCopy', copiedText);
     }
+    if ((elID === 'KeyA') && (ControlLeft || ControlRight)) {
+      const textarea = document.querySelector('textarea');
+      textarea.select();
+
+      // document.querySelector('#ControlRight').classList.remove('pressed');
+      // document.querySelector('#ControlLeft').classList.remove('pressed');
+    }
     if ((elID === 'KeyV') && (ControlLeft || ControlRight)) {
-      document.querySelector('#ControlRight').classList.remove('pressed');
-      document.querySelector('#ControlLeft').classList.remove('pressed');
+      //   document.querySelector('#ControlRight').classList.remove('pressed');
+      //   document.querySelector('#ControlLeft').classList.remove('pressed');
 
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
@@ -154,13 +161,20 @@ keyboard.addEventListener('click', (e) => {
       document.querySelector('#ControlLeft').classList.remove('pressed');
       localStorage.setItem('mracoonCopy', copiedText);
     }
+    if ((elID === 'KeyA') && (ControlLeft || ControlRight)) {
+      const textarea = document.querySelector('textarea');
+      textarea.select();
+
+      document.querySelector('#ControlRight').classList.remove('pressed');
+      document.querySelector('#ControlLeft').classList.remove('pressed');
+    }
     if ((elID === 'KeyV') && (ControlLeft || ControlRight)) {
       document.querySelector('#ControlRight').classList.remove('pressed');
       document.querySelector('#ControlLeft').classList.remove('pressed');
 
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
-    if (!(((elID === 'KeyC') || (elID === 'KeyV')) && (ControlLeft || ControlRight))) {
+    if (!(((elID === 'KeyC') || (elID === 'KeyV') || (elID === 'KeyA')) && (ControlLeft || ControlRight))) {
       clickHandler(elID, lang);
     }
   }
