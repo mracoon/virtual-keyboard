@@ -4,7 +4,16 @@ import generateKeysBtns from './scripts/generateKeysBtns.js';
 import buildSpecialBtnsObj from './scripts/buildSpecialBtnsObj.js';
 import clickHandler from './scripts/clickHandler.js';
 import updKeyBtns from './scripts/updKeyBtns.js';
+import soundPlay from './scripts/playSound.js';
 
+let isPlaySound = true;
+/* function soundPlay(isPlay) {
+  if (isPlay) {
+    const audio = new Audio();
+    audio.src = './assets/key-down.mp3';
+    audio.play()
+  }
+} */
 let capsPressed = false;
 const specBtns = {
   CapsLock: false,
@@ -43,6 +52,8 @@ window.addEventListener(
       ControlRight,
     } = specialBtns;
     if (elem) {
+      soundPlay(isPlaySound);
+      isPlaySound = false;
       if (elID in specBtns) {
         if (elID === 'CapsLock') {
           if (!capsPressed) {
@@ -123,12 +134,14 @@ window.addEventListener(
       clickHandler(elID, lang, localStorage.getItem('mracoonCopy'));
     }
     updKeyBtns(keys, lang);
+    isPlaySound = true;
   },
 );
 
 keyboard.addEventListener('click', (e) => {
   const pressedBtn = e.target;
   if (pressedBtn.classList.contains('button')) {
+    soundPlay(true);
     const elID = pressedBtn.id;
     const specialBtns = buildSpecialBtnsObj();
     const {
